@@ -364,7 +364,12 @@ const Navbar = () => {
       {/* MOBILE TOP STRIP — replaces the top bar on small screens     */}
       {/* ============================================================ */}
 
-      <div className="bg-[#8b1e72] lg:hidden">
+      {/* ✅ FIX: added `relative z-[10002]` here so this whole strip
+          (and the language dropdown inside it) renders ABOVE the
+          main <nav> below, which has z-[9999]. Previously this strip
+          had no stacking context of its own, so the open dropdown was
+          rendering behind the navbar instead of on top of it. */}
+      <div className="bg-[#8b1e72] lg:hidden relative z-[9999]">
         <div className="flex items-center justify-center gap-2 px-2 py-1.5">
 
           {/* Book Appointment */}
@@ -420,7 +425,7 @@ const Navbar = () => {
                 shadow-xl
                 border border-[#f3e6ef]
                 overflow-hidden
-                z-[999]
+                z-[10002]
               "
               >
                 <button
@@ -464,7 +469,7 @@ const Navbar = () => {
       {/* MAIN NAVBAR                                                   */}
       {/* ============================================================ */}
 
-      <nav className="bg-[#fafbfd] relative z-[9999] overflow-visible shadow-sm">
+      <nav className="bg-[#fafbfd] relative z-[9998] overflow-visible shadow-sm">
 
         <div className="max-w-7xl mx-auto px-4">
 
@@ -732,7 +737,11 @@ const Navbar = () => {
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#f3e6ef] bg-[#f3e6ef]">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="Gawade Hospital" className="h-10 w-auto object-contain" />
+
+            <img src={logo} alt="Gawade Hospital" className="h-10 w-auto object-contain" />
+
+          
+             
             <span
               className="text-lg"
               style={{ fontFamily: "Prata, serif", color: "#8b1e72" }}
@@ -934,7 +943,7 @@ const Navbar = () => {
         className="
         fixed bottom-0 left-0 right-0
         lg:hidden
-        z-[9998]
+        z-[9997]
         px-2 pb-2 pt-1.5
         bg-white
         border-t border-[#f3e6ef]
