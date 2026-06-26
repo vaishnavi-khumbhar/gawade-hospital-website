@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+
+
+/* hro */
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
+
+
+/* all body font  */
+body {
+  font-family: 'Signika', sans-serif;
+}
+
+
+
+/* Gallery hero marquee  */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+/* मोठ्या screen वर जास्त वेळ — smooth वाटतो */
+@media (min-width: 768px) {
+  .animate-marquee {
+    animation-duration: 40s;
+  }
+}
+
+/* छोट्या screen वर content कमी दिसतो — थोडा जलद */
+@media (max-width: 767px) {
+  .animate-marquee {
+    animation-duration: 25s;
+  }
+}
