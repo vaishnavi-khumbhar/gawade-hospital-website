@@ -81,6 +81,12 @@ const specialities = [
 
 export default function Specialities() {
   return (
+<>
+
+
+
+
+    
     <section className="relative py-20 bg-[#faf7fb] overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-40">
@@ -160,5 +166,8 @@ export default function Specialities() {
         </div>
       </div>
     </section>
+
+
+    </>
   );
 }
