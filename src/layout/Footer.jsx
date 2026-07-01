@@ -79,13 +79,12 @@ export default function Footer() {
         help you choose the right next step.
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-14">
-
+<div className="mx-auto max-w-7xl px-6 py-10">
         {/* Logo & Contact */}
-        <div
-          className="mb-12 flex flex-col gap-10 border-b pb-12 lg:flex-row lg:items-start lg:justify-between"
-          style={{ borderColor: BRAND_SOFT }}
-        >
+       <div
+  className="mb-8 flex flex-col gap-8 border-b pb-8 lg:flex-row lg:items-start lg:justify-between"
+  style={{ borderColor: BRAND_SOFT }}
+>
           {/* Left */}
           <div className="max-w-md">
 
@@ -205,8 +204,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Columns */}
-<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-6">
-
+<div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-6">
 
    <FooterColumn
             title="Super Specialities"
@@ -404,9 +402,9 @@ function SocialIcon({ Icon }) {
     <a
       href="#"
       style={{ backgroundColor: BRAND }}
-      className="flex h-11 w-11 items-center justify-center rounded-full text-white transition-all duration-300 hover:scale-110 hover:opacity-90"
+      className="flex h-10 w-11 items-center justify-center rounded-full text-white transition-all duration-300 hover:scale-110 hover:opacity-90"
     >
-      <Icon size={20} />
+      <Icon size={15} />
     </a>
   );
 }

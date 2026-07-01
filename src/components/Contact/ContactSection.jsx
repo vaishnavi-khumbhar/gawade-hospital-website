@@ -83,30 +83,29 @@ export default function FaqSection() {
 
             <div className="flex items-center gap-2.5 mb-3">
               <div className="w-9 h-0.5 bg-[#8b1e72]" />
-              <span className="text-[#8b1e72] text-[11px] font-semibold tracking-[.13em] uppercase">
+              <span className="text-[#8b1e72] text-[13px] sm:text-[17px] font-semibold tracking-[.13em] uppercase">
                 FAQs
               </span>
             </div>
 
-            <h2 className="text-[#8b1e72] text-xl sm:text-3xl md:text-4xl font-bold mb-3">
-              Quick answers for patients and families
-            </h2>
+           <h2 className="text-[#8b1e72] text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-4">
+  Quick Answers for Patients & Families
+</h2>
+           <p className="text-gray-500 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 mb-7 sm:mb-9 max-w-3xl">
+  Everything you need to know about Gawade Hospital — structured for fast answers.
+</p>
 
-            <p className="text-gray-500 text-sm sm:text-base mb-6 sm:mb-8">
-              Everything you need to know about Gawade Hospital — structured for fast answers.
-            </p>
-
-            <div className="flex flex-col gap-3">
-              {faqs.map((item, i) => (
-                <FaqItem
-                  key={i}
-                  q={item.q}
-                  a={item.a}
-                  isOpen={openIdx === i}
-                  onClick={() => toggle(i)}
-                />
-              ))}
-            </div>
+            <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6">
+  {faqs.map((item, i) => (
+    <FaqItem
+      key={i}
+      q={item.q}
+      a={item.a}
+      isOpen={openIdx === i}
+      onClick={() => toggle(i)}
+    />
+  ))}
+</div>
           </div>
 
           {/* IMAGE BELOW ON MOBILE */}
@@ -168,13 +167,13 @@ export default function FaqSection() {
 
     {/* Text */}
     <div className="flex-1">
-      <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-[#8b1e72]">
-        Check FAQs
-      </h4>
+     <h4 className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold text-[#8b1e72] tracking-tight">
+  Check FAQs
+</h4>
 
-      <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
-        Find quick answers here...
-      </p>
+     <p className="text-[15px] sm:text-[16px] lg:text-[16px] text-gray-600 leading-7">
+  Find quick answers here...
+</p>
     </div>
   </div>
 
@@ -186,13 +185,13 @@ export default function FaqSection() {
       {/* CTA */}
       <div className="bg-[#8b1e72] px-5 sm:px-10 py-5 sm:py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h3 className="text-white text-lg sm:text-xl font-semibold mb-1">
-            Care that stays connected to you
-          </h3>
-          <p className="text-white/80 text-sm sm:text-base lg:text-lg">
-            From emergency support to speciality care and hospital assistance,
-            Gawade Hospital is here to help you choose the right next step.
-          </p>
+        <h3 className="text-white text-[24px] sm:text-[28px] lg:text-[32px] font-bold leading-tight tracking-tight mb-2">
+  Care that stays connected to you
+</h3>
+       <p className="text-white/80 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-2xl">
+  From emergency support to speciality care and hospital assistance,
+  Gawade Hospital is here to help you choose the right next step.
+</p>
         </div>
 
       <Link

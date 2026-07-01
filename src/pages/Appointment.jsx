@@ -273,21 +273,7 @@ export default function Appointment() {
             alt="Appointment"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Emergency strip */}
-          <div
-            className="absolute top-4 left-0 flex items-center justify-center text-white font-bold tracking-widest shadow-lg"
-            style={{
-              backgroundColor: "#e30613",
-              width: "32px",
-              height: "120px",
-              writingMode: "vertical-rl",
-              transform: "rotate(180deg)",
-              fontSize: "11px",
-              letterSpacing: "2px",
-            }}
-          >
-            EMERGENCY
-          </div>
+        
         </div>
 
         {/* Content below image */}
@@ -298,12 +284,33 @@ export default function Appointment() {
   }}
 >
   <h1
-    className="text-white text-3xl font-extrabold mb-4 drop-shadow-sm"
+className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight drop-shadow-md"
     style={{ fontFamily: "Signika, sans-serif" }}
   >
     Book Appointment
   </h1>
+<p
+  className="
+    text-white/90
+    text-sm
+    sm:text-base
+    md:text-lg
+    lg:text-xl
+    max-w-full
+    sm:max-w-xl
+    lg:max-w-2xl
+    leading-6
+    sm:leading-7
+    lg:leading-8
+    mb-6
+    sm:mb-8
+    pr-2
+  "
+  style={{ fontFamily: "Signika, sans-serif" }}
+>
+   Schedule your appointment with our experienced specialists for expert consultation and compassionate care.
 
+</p>
   <div className="flex flex-row gap-2">
     <Link to="/book-appointment" className="flex-1">
       <button
@@ -334,7 +341,7 @@ export default function Appointment() {
 
       {/* ── DESKTOP HERO ── hidden on mobile, original overlay layout */}
       <div className="hidden md:block">
-        <div className="relative w-full" style={{ height: "420px" }}>
+        <div className="relative w-full" style={{ height: "550px" }}>
           <img
             src={appointmentImg}
             alt="Appointment"
@@ -353,29 +360,24 @@ export default function Appointment() {
             }}
           />
 
-          {/* Emergency strip */}
-          <div
-            className="absolute left-0 top-1/3 flex items-center justify-center text-white font-bold tracking-widest cursor-pointer shadow-lg"
-            style={{
-              backgroundColor: "#e30613",
-              width: "40px",
-              height: "180px",
-              writingMode: "vertical-rl",
-              transform: "rotate(180deg)",
-              fontSize: "14px",
-              letterSpacing: "2px",
-            }}
-          >
-            EMERGENCY
-          </div>
-
+          
           <div className="relative h-full max-w-6xl mx-auto px-10 flex flex-col justify-center">
-            <h1
-              className="text-white text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-sm"
-              style={{ fontFamily: "Signika, sans-serif" }}
-            >
-              Book Appointment
-            </h1>
+           <h1
+    className="text-white text-5xl md:text-6xl font-extrabold mb-5 drop-shadow-sm"
+    style={{ fontFamily: "Signika, sans-serif" }}
+  >
+    Book Appointment
+  </h1>
+
+  {/* Description */}
+  <p
+    className="text-white/90 text-lg md:text-xl max-w-2xl leading-8 mb-8"
+    style={{ fontFamily: "Signika, sans-serif" }}
+  >
+    Schedule your appointment with our experienced specialists for
+    personalized, high-quality healthcare. Get expert consultation
+     and compassionate care at Gawade Hospital.
+  </p>
             <div className="flex gap-4" style={{ fontFamily: "Signika, sans-serif" }}>
              <Link to="/appointment">
     <button
@@ -404,16 +406,27 @@ export default function Appointment() {
       {/* ============================================================
           BREADCRUMB
       ============================================================ */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-10 pt-4 sm:pt-6 text-sm font-signika">
-        <Link to="/" style={{ color: BRAND }} className="font-medium">
-          Home
-        </Link>
-        <span className="text-gray-400 mx-2">/</span>
-        <Link to="/book-appointment" style={{ color: BRAND }} className="font-medium">
-          Book Appointment
-        </Link>
-      </div>
+      <div
+  className="max-w-6xl mx-auto px-10 py-4 flex items-center gap-2 text-base sm:text-lg"
+  style={{ fontFamily: "Signika, sans-serif" }}
+>
+  <a
+    href="/"
+    style={{ color: BRAND }}
+    className="font-medium hover:underline"
+  >
+    Home
+  </a>
 
+  <span className="text-gray-400">/</span>
+
+  <span
+    style={{ color: BRAND }}
+    className="font-semibold"
+  >
+    Appointment
+  </span>
+</div>
       {/* ============================================================
           FORM SECTION
       ============================================================ */}
@@ -426,7 +439,7 @@ export default function Appointment() {
         </h2>
 
         <p
-          className="text-gray-500 mb-6 sm:mb-8 text-sm sm:text-base"
+className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] leading-7"
           style={{ fontFamily: "Signika, sans-serif" }}
         >
           Fill in your details and our team will get back to you to confirm your slot.
@@ -572,6 +585,9 @@ export default function Appointment() {
           )}
         </div>
       </div>
+
+
+      
     </div>
   );
 }

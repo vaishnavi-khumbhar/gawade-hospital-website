@@ -142,67 +142,7 @@ export default function Hero() {
   return (
     <section className="relative">
 
-      {/* ============================================================ */}
-      {/* EMERGENCY SIDE TAB — desktop/tablet hover version (unchanged) */}
-      {/* ============================================================ */}
-
-      <div className="hidden md:flex fixed left-0 top-1/2 -translate-y-1/2 z-50 group items-center">
-
-        <div className="bg-red-600 text-white w-10 h-32 rounded-r-lg shadow-lg flex items-center justify-center cursor-pointer">
-          <span
-            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-          >
-            EMERGENCY
-          </span>
-        </div>
-
-        <div className="ml-2 w-72 opacity-0 invisible -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-x-0">
-          <div className="bg-white border border-[#8b1e72]/20 rounded-xl shadow-2xl overflow-hidden">
-
-            <div className="bg-[#8b1e72] text-white px-4 py-3 font-semibold">
-              Emergency Contact
-            </div>
-
-            <div className="p-2">
-              <a
-                href="tel:+919876543210"
-                className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg"
-              >
-                <Ambulance size={18} className="text-[#8b1e72]" />
-                <span>Emergency +91 98765 43210</span>
-              </a>
-
-              <a
-                href="tel:+912012345678"
-                className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg"
-              >
-                <Phone size={18} className="text-[#8b1e72]" />
-                <span>Call +91 20 1234 5678</span>
-              </a>
-
-              <a
-                href="https://wa.me/919876543210"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg"
-              >
-                <MessageCircle size={18} className="text-[#8b1e72]" />
-                <span>WhatsApp</span>
-              </a>
-
-              <a
-                href="/appointment"
-                className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg"
-              >
-                <Calendar size={18} className="text-[#8b1e72]" />
-                <span>Book Appointment</span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
+      
       {/* Mobile-only one-tap emergency pill (no hover panel - touch
           screens don't have hover, so this is a direct-dial shortcut) */}
       <a

@@ -111,62 +111,88 @@ function DoctorCard({ doctor }) {
       style={{ color: "#e445bf" }}
     >
       {/* Top */}
-      <div className="flex items-start gap-4">
-        <div
-          className="w-20 h-20 rounded-xl flex items-center justify-center text-white text-xl font-bold flex-shrink-0"
-          style={{ backgroundColor: "#8b1e72" }}
-        >
-          {initials}
-        </div>
+     <div className="flex items-start gap-4">
+  <div
+    className="w-20 h-20 rounded-xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0"
+    style={{ backgroundColor: "#8b1e72" }}
+  >
+    {initials}
+  </div>
 
-        <div className="flex flex-col justify-center min-w-0">
-          <h3
-            className="text-base font-bold leading-tight"
-            style={{ color: "#8b1e72" }}
-          >
-            {doctor.name}
-          </h3>
-          <p className="text-sm text-gray-500 mt-1 leading-snug">
-            {doctor.specialty}
-          </p>
-        </div>
-      </div>
+  <div className="flex flex-col justify-center min-w-0">
+    <h3
+      className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold leading-tight"
+      style={{ color: "#8b1e72" }}
+    >
+      {doctor.name}
+    </h3>
+
+    <p className="mt-2 text-[15px] sm:text-[16px] lg:text-[17px] text-gray-500 leading-6">
+      {doctor.specialty}
+    </p>
+  </div>
+</div>
 
       {/* Description */}
-      <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">
-        {doctor.description}
-      </p>
+     <p className="text-[15px] sm:text-[16px] lg:text-[17px] text-gray-600 leading-7 line-clamp-3">
+  {doctor.description}
+</p>
 
-      {/* Location & Schedule */}
-      <div className="flex flex-col gap-1.5 text-sm text-gray-500">
-        <div className="flex items-center gap-2">
-          <LocationIcon />
-          <span>{doctor.location}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <CalendarIcon />
-          <span>{doctor.schedule}</span>
-        </div>
-      </div>
+{/* Location & Schedule */}
+<div className="flex flex-col gap-2 text-[15px] sm:text-[16px] lg:text-[17px] text-gray-500">
+  <div className="flex items-center gap-2">
+    <LocationIcon />
+    <span>{doctor.location}</span>
+  </div>
 
-      {/* Buttons */}
-      <div className="flex gap-3 mt-auto pt-1">
-        <Link
-          to="/doctor-details"
-          className="flex-1 py-2 rounded-lg border text-center text-sm font-medium hover:bg-blue-50 transition-colors duration-150"
-          style={{ color: "#8b1e72" }}
-        >
-          Know More
-        </Link>
+  <div className="flex items-center gap-2">
+    <CalendarIcon />
+    <span>{doctor.schedule}</span>
+  </div>
+</div>
 
-        <Link
-          to="/book-appointment"
-          className="flex-1 py-2 rounded-lg text-white text-sm font-semibold hover:opacity-90 transition-opacity duration-150 text-center"
-          style={{ backgroundColor: "#8b1e72" }}
-        >
-          Book Appointment
-        </Link>
-      </div>
+{/* Buttons */}
+<div className="flex gap-3 mt-auto pt-2">
+  <Link
+    to="/doctor-details"
+    className="
+      flex-1
+      py-3
+      rounded-xl
+      border-2
+      text-center
+      text-[15px] sm:text-[16px] lg:text-[17px]
+      font-semibold
+      hover:bg-[#f3e6ef]
+      transition-all
+      duration-300
+    "
+    style={{ color: "#8b1e72", borderColor: "#8b1e72" }}
+  >
+    Know More
+  </Link>
+
+  <Link
+    to="/book-appointment"
+    className="
+      flex-1
+      py-3
+      rounded-xl
+      text-white
+      text-[15px] sm:text-[15px] lg:text-[15px]
+      font-semibold
+      shadow-md
+      hover:opacity-90
+      hover:shadow-lg
+      transition-all
+      duration-300
+      text-center
+    "
+    style={{ backgroundColor: "#8b1e72" }}
+  >
+    Book Appointment
+  </Link>
+</div>
     </div>
   );
 }
@@ -190,7 +216,7 @@ export default function DoctorsSection() {
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-10 md:w-12 h-[2px] bg-[#c9a227]" />
-            <span className="text-[#8b1e72] font-semibold uppercase tracking-[2px] text-xs sm:text-sm">
+            <span className="text-[#8b1e72]  text-[13px] sm:text-[17px] font-semibold uppercase tracking-[2px] text-xs sm:text-sm">
               Specialist Doctors
             </span>
           </div>
@@ -199,8 +225,7 @@ export default function DoctorsSection() {
             Meet Our Medical Experts
           </h2>
 
-          <p className="mt-3 text-gray-500 max-w-2xl mx-auto text-sm sm:text-base leading-6">
-            Our team of highly qualified specialists is committed to providing
+<p className="mt-3 text-gray-500 text-[16px] sm:text-[17px] lg:text-[18px] leading-7 lg:leading-8 max-w-3xl mx-auto">            Our team of highly qualified specialists is committed to providing
             advanced diagnosis, effective treatment, and comprehensive patient care.
           </p>
         </div>

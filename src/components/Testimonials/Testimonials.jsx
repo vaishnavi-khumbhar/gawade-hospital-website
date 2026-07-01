@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
         {/* Label row */}
         <div className="flex items-center gap-2 mb-3">
           <div className="w-8 h-0.5 bg-[#8b1e72]" />
-          <span className="text-[#8b1e72] text-[11px] font-semibold tracking-widest uppercase">
+          <span className="text-[#8b1e72] text-[13px] sm:text-[17px] font-semibold tracking-widest uppercase">
             Patient Stories
           </span>
         </div>
@@ -71,12 +71,12 @@ export default function TestimonialsSection() {
         {/* Heading + More button — stacked on mobile, side-by-side on sm+ */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
           <div>
-            <h2 className="text-[#8b1e72] text-2xl sm:text-4xl lg:text-4xl font-bold leading-tight">
-              Stories of recovery and trust
-            </h2>
-            <p className="text-[#7c5a88] text-sm sm:text-base leading-relaxed mt-2 max-w-xl">
-              Real experiences from patients and families who chose Gawade Hospital for their care.
-            </p>
+           <h2 className="text-[#8b1e72] text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+  Stories of Recovery & Trust
+</h2>
+           <p className="mt-3 text-[#7c5a88] text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-2xl">
+  Real experiences from patients and families who chose Gawade Hospital for their care.
+</p>
           </div>
 
           

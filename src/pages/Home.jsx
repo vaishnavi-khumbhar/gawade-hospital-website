@@ -7,6 +7,8 @@ import Testimonials from "../components/Testimonials/Testimonials";
 import GallerySection from "../components/Gallery/GallerySection";
 import ContactSection from "../components/Contact/ContactSection";
 
+
+
 const Home = () => {
   return (
     <>

@@ -78,9 +78,7 @@ const specialitiesData = [
 
 const navLinks = [
   { label: "Doctors", href: "/doctors" },
-  { label: "Facilities", href: "/facilities" },
   { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -167,13 +165,14 @@ const Navbar = () => {
 
               {/* Ambulance */}
               <div className="relative group">
-                <a
-                  href={`tel:${EMERGENCY_NUMBER}`}
-                  className="w-9 h-9 rounded-full bg-[#dc2626] text-white hover:bg-[#b91c1c] duration-300 flex items-center justify-center"
-                >
-                  <FaAmbulance className="text-sm" />
-                </a>
-
+                <div className="relative group">
+  <a
+    href={`tel:${EMERGENCY_NUMBER}`}
+    className="w-9 h-9 rounded-full bg-[#dc2626] text-white hover:bg-[#b91c1c] duration-300 flex items-center justify-center"
+  >
+    <FaAmbulance className="text-sm" />
+  </a>
+</div>
                 <div
                   className="
                   absolute top-full left-1/2 -translate-x-1/2
@@ -196,7 +195,7 @@ const Navbar = () => {
 
               {/* WhatsApp */}
               <div className="relative group">
-                <a
+                <a 
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noreferrer"
@@ -227,7 +226,7 @@ const Navbar = () => {
 
               {/* Phone */}
               <div className="relative group">
-                <a
+                 <a 
                   href={`tel:${EMERGENCY_NUMBER}`}
                   className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
                 >
@@ -256,7 +255,7 @@ const Navbar = () => {
 
               {/* Email */}
               <div className="relative group">
-                <a
+                 <a 
                   href={`mailto:${EMAIL}`}
                   className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
                 >
@@ -323,15 +322,15 @@ const Navbar = () => {
 
             {/* Social Icons */}
 
-            <a
+             <a 
               href="/"
               title="Facebook"
               className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
             >
               <FaFacebookF className="text-sm" />
             </a>
-
-            <a
+ <a 
+            
               href="/"
               title="Instagram"
               className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
@@ -339,15 +338,15 @@ const Navbar = () => {
               <FaInstagram className="text-sm" />
             </a>
 
-            <a
+             <a 
               href="/"
               title="LinkedIn"
               className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
             >
               <FaLinkedinIn className="text-sm" />
             </a>
-
-            <a
+ <a 
+            
               href="/"
               title="YouTube"
               className="w-9 h-9 rounded-full bg-red-600 text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
@@ -525,9 +524,12 @@ const Navbar = () => {
             "
             >
               <li>
-                <Link to="/appointment" className="hover:text-[#5e1550] duration-300">
-                  Book an Appointment
-                </Link>
+                <Link
+  to="/appointment"
+  className="text-base hover:text-[#5e1550]  duration-300"
+>
+  Book an Appointment
+</Link>
               </li>
 
               {/* Specialities - Mega Menu Trigger.
@@ -535,22 +537,22 @@ const Navbar = () => {
                   absolutely positioned relative to this same <li>, so the
                   mouse never has to leave the hover zone to reach the panel. */}
               <li
-                className="relative h-20 flex items-center"
-                onMouseEnter={() => setShowSpecialities(true)}
+  className="relative h-20 flex items-center h-[65px]"
+                  onMouseEnter={() => setShowSpecialities(true)}
                 onMouseLeave={() => setShowSpecialities(false)}
               >
                 {/* ✅ FIX 2: button → Link so clicking "Specialities" text navigates to /specialities */}
-                <Link
-                  to="/specialities"
-                  className="flex items-center gap-1.5 hover:text-[#5e1550] duration-300 cursor-pointer"
-                >
-                  Specialities
-                  <FaChevronDown
-                    className={`text-[10px] duration-300 ${
-                      showSpecialities ? "rotate-180" : ""
-                    }`}
-                  />
-                </Link>
+               <Link
+  to="/specialities"
+  className="flex items-center gap-1.5 text-base hover:text-[#5e1550] duration-300 cursor-pointer"
+>
+  Specialities
+  <FaChevronDown
+    className={`text-[10px] duration-300 ${
+      showSpecialities ? "rotate-180" : ""
+    }`}
+  />
+</Link>
 
                 {/* SPECIALITIES MEGA DROPDOWN.
                     NOTE: needs left-1/2 + -translate-x-1/2 together to
@@ -559,14 +561,22 @@ const Navbar = () => {
                     panel rightward instead of centering it. */}
 
                 <div
-                  className={`
-                  absolute left-1/2 -translate-x-1/2 top-full
-                  w-[min(80vw,850px)]
-                  transition-all duration-300 origin-top
-                  ${showSpecialities
-                    ? "opacity-100 translate-y-0 pointer-events-auto"
-                    : "opacity-0 -translate-y-2 pointer-events-none"}
-                `}
+              className={`
+   absolute
+  top-full
+  right-[-220px]
+  mt-0
+  w-[900px]
+  max-w-[calc(100vw-60px)]
+  z-[99999]
+  origin-top
+  transition-all duration-300
+  ${
+    showSpecialities
+      ? "opacity-100 translate-y-0 pointer-events-auto"
+      : "opacity-0 -translate-y-2 pointer-events-none"
+  }
+`}
                 >
                   <div className="bg-white rounded-2xl shadow-[0_25px_60px_-15px_rgba(139,30,114,0.35)] border border-[#f0d9e9] overflow-hidden">
 
@@ -621,7 +631,7 @@ const Navbar = () => {
                                       <Icon className="text-[13px]" />
                                     </span>
 
-                                    <span className="leading-snug group-hover:text-[#8b1e72]">
+                                    <span className="leading-snug group-hover:text-[#8b1e72] ">
                                       {item.label}
                                     </span>
                                   </Link>
@@ -656,15 +666,15 @@ const Navbar = () => {
               </li>
 
               {navLinks.map((link) => (
-                <li key={link.label} className="hover:text-[#5e1550] cursor-pointer duration-300">
+                <li key={link.label} className="hover:text-[#5e1550] cursor-pointer duration-300 text-base">
                   <Link to={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>
 
             {/* Desktop quick call button (tablet/lg, before hamburger kicks in) */}
-
-            <a
+ <a 
+            
               href={`tel:${EMERGENCY_NUMBER}`}
               className="hidden md:flex lg:hidden items-center gap-2 bg-[#8b1e72] text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#5e1550] duration-300"
             >
@@ -856,7 +866,7 @@ const Navbar = () => {
           {/* Contact block inside drawer */}
           <div className="px-5 py-5 flex flex-col gap-3">
 
-            <a
+             <a 
               href={`tel:${EMERGENCY_NUMBER}`}
               className="flex items-center gap-3 text-sm text-gray-700"
             >
@@ -866,7 +876,7 @@ const Navbar = () => {
               {EMERGENCY_NUMBER}
             </a>
 
-            <a
+             <a 
               href={`mailto:${EMAIL}`}
               className="flex items-center gap-3 text-sm text-gray-700"
             >
@@ -897,7 +907,7 @@ const Navbar = () => {
               <a href="/" className="w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center">
                 <FaYoutube className="text-sm" />
               </a>
-              <a
+               <a 
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noreferrer"
@@ -913,7 +923,7 @@ const Navbar = () => {
 
         {/* Drawer sticky bottom CTA */}
         <div className="p-4 border-t border-[#f3e6ef] flex gap-3">
-          <a
+           <a 
             href={`tel:${EMERGENCY_NUMBER}`}
             className="flex-1 flex items-center justify-center gap-2 bg-[#dc2626] text-white py-3 rounded-xl font-semibold text-sm"
           >
@@ -951,8 +961,8 @@ const Navbar = () => {
       "
       >
         <div className="grid grid-cols-4 gap-1.5">
-
-          <a
+ <a 
+          
             href={`tel:${EMERGENCY_NUMBER}`}
             className="
             flex flex-col items-center justify-center
@@ -970,7 +980,7 @@ const Navbar = () => {
             <span className="text-[10.5px] font-semibold text-white">Emergency</span>
           </a>
 
-          <a
+           <a 
             href={`tel:${EMERGENCY_NUMBER}`}
             className="
             flex flex-col items-center justify-center

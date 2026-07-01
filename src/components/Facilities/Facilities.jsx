@@ -69,8 +69,7 @@ export default function WhyChooseGawade() {
               Advanced Orthopedic,<br />Trauma & Multispeciality {" "}
               <span className="block text-[#f7d6ea]">Care.</span>
             </h2>
-            <p className="mt-5 text-gray-100 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Trusted healthcare destination in Baramati providing advanced orthopedic care,
+<p className="mt-5 text-gray-100 text-[17px] sm:text-[18px] lg:text-[20px] leading-8 lg:leading-9 max-w-2xl mx-auto lg:mx-0">              Trusted healthcare destination in Baramati providing advanced orthopedic care,
               trauma management, joint replacement, neurosurgery and emergency services.
             </p>
           </div>
@@ -97,7 +96,9 @@ export default function WhyChooseGawade() {
               </div>
               <CountUp target={item.number} suffix={item.suffix} display={item.display} />
               <h4 className="mt-2 text-sm md:text-base font-semibold "  style={{ color: "#8b1e72" }}>{item.title}</h4>
-              <p className="mt-1 text-xs md:text-sm text-gray-500 leading-relaxed">{item.description}</p>
+<p className="mt-2 text-[15px] sm:text-[16px] lg:text-[17px] text-gray-500 leading-7">
+  {item.description}
+</p>
             </div>
           ))}
         </div>
@@ -105,8 +106,7 @@ export default function WhyChooseGawade() {
         {/* Mission Box */}
         <div className="mt-8">
           <div className="bg-white rounded-3xl p-5 md:p-7 shadow-xl border-l-4 border-[#8b1e72]">
-            <p className="text-center text-gray-700 text-sm md:text-lg leading-relaxed max-w-5xl mx-auto">
-              Gawade Hospital is dedicated to delivering compassionate, patient-focused healthcare
+<p className="text-center mt-3 text-gray-700 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-5xl mx-auto">              Gawade Hospital is dedicated to delivering compassionate, patient-focused healthcare
               through advanced medical technology, experienced specialists, modern infrastructure
               and excellence in treatment outcomes.
             </p>

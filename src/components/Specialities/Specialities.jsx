@@ -56,17 +56,17 @@ export default function Specialities() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-10 md:w-12 h-[2px] bg-[#c9a227]" />
 
-            <span className="text-[#8b1e72] font-semibold uppercase tracking-[2px] text-xs sm:text-sm">
+            <span className="text-[#8b1e72] text-[13px] sm:text-[17px] font-semibold uppercase tracking-[2px] text-xs sm:text-sm">
               Our Specialities
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#8b1e72]">
+          <h2 className="text-4xl sm:text-3xl lg:text-4xl font-bold text-[#8b1e72]">
             Advanced Healthcare Services
           </h2>
 
-          <p className="text-gray-600 mt-4 leading-7 text-sm sm:text-base">
-            Gawade Hospital offers advanced orthopedic, neuro, spine,
+<p className="mt-4 text-gray-600 text-[17px] sm:text-[17px] lg:text-[18px] leading-8">
+              Gawade Hospital offers advanced orthopedic, neuro, spine,
             trauma and emergency care with modern technology and
             experienced specialists.
           </p>
@@ -102,7 +102,7 @@ export default function Specialities() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm md:text-[15px] leading-6 flex-grow">
+              <p className="mt-4 text-gray-600 text-[16px] sm:text-[17px] lg:text-[18px] leading-8">
                 {item.description}
               </p>
 
@@ -113,14 +113,18 @@ export default function Specialities() {
                   to="/specialities"
                   className="
                     flex-1
-                    border border-[#8b1e72]
-                    text-[#8b1e72]
-                    px-4 py-2.5
-                    rounded-xl
-                    text-sm
-                    font-semibold
-                    hover:bg-[#f3e6ef]
-                    duration-300
+  border-2 border-[#8b1e72]
+  text-[#8b1e72]
+  px-5 py-3
+  rounded-xl
+  text-[16px] sm:text-[17px]
+  font-semibold
+  hover:bg-[#8b1e72]
+  hover:text-white
+  hover:shadow-lg
+  hover:-translate-y-0.5
+  transition-all
+  duration-300
                   "
                 >
                   Know More
@@ -130,13 +134,18 @@ export default function Specialities() {
                   to="/appointment"
                   className="
                     flex-1
-                    bg-[#8b1e72]
-                    text-white
-                    px-4 py-2.5
-                    rounded-xl
-                    text-sm
-                    font-semibold
-                    hover:bg-[#74185f]
+  bg-[#8b1e72]
+  text-white
+  px-5 py-3
+  rounded-xl
+  text-[16px] sm:text-[17px]
+  font-semibold
+  shadow-md
+  hover:bg-[#74185f]
+  hover:shadow-lg
+  hover:-translate-y-0.5
+  transition-all
+  duration-300
                     duration-300
                   "
                 >

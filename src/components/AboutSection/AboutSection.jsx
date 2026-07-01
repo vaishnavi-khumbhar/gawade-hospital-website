@@ -87,11 +87,11 @@ const AboutSection = () => {
 
 <div className="relative z-10 flex flex-col justify-between h-full">
             <div>
-              <h3 className="text-[12px] sm:text-[16px] font-semibold text-[#8b1e72] leading-tight">
+              <h3 className="text-[15px] sm:text-[17px] font-semibold text-[#8b1e72] leading-tight">
                 {item.title}
               </h3>
 
-              <p className="mt-1 text-[10px] sm:text-[13px] text-gray-600 leading-4 sm:leading-6">
+              <p className="mt-1 text-[15px] sm:text-[17px] text-gray-600 leading-4 sm:leading-6">
                 {item.desc}
               </p>
             </div>
@@ -157,12 +157,12 @@ const AboutSection = () => {
         <div className="relative z-10 flex flex-col justify-between h-full">
 
           <div>
-            <h3 className="text-[12px] sm:text-[16px] font-semibold text-red-500 leading-tight">
+            <h3 className="text-[15px] sm:text-[17px] font-semibold text-red-500 leading-tight">
               Emergency Care
             </h3>
 
-            <p className="mt-1 text-[10px] sm:text-[13px] text-gray-600 leading-4 sm:leading-6">
-              24×7 Trauma, Accident & Critical Care Support
+            <p className="mt-1 text-[15px] sm:text-[17px] text-gray-600 leading-4 sm:leading-6">
+              24×7 Emergency Care
             </p>
           </div>
 
@@ -197,8 +197,13 @@ const AboutSection = () => {
 
         </div>
       </div>
+      
 
     </div>
+
+
+
+    
   </div>
 </section>
 
@@ -215,7 +220,7 @@ const AboutSection = () => {
 
         <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
           <div className="w-10 h-[2px] bg-[#c9a227]" />
-          <span className="uppercase tracking-[2px] text-[11px] sm:text-xs font-semibold text-[#8b1e72]">
+          <span className="uppercase tracking-[2px] text-[13px] sm:text-[17px] sm:text-xs font-semibold text-[#8b1e72]">
             About Gawade Hospital
           </span>
         </div>
@@ -226,27 +231,37 @@ const AboutSection = () => {
           Compassion in Service
         </h2>
 
-        <p className="mt-5 text-gray-600 text-sm sm:text-base leading-7 max-w-2xl mx-auto lg:mx-0">
-          Gawade Hospital is a trusted multispeciality healthcare destination
-          in Baramati, providing advanced Orthopedic, Trauma, Joint
-          Replacement, Neurosurgery, Spine Care and Emergency Services with
-          modern technology and patient-focused treatment.
-        </p>
+       <p className="mt-5 text-gray-600 text-[16px] sm:text-[16px] md:text-[18px] lg:text-[18px] leading-8 max-w-3xl mx-auto lg:mx-0">
+  Gawade Hospital is a trusted multispeciality healthcare destination
+  in Baramati, providing advanced Orthopedic, Trauma, Joint
+  Replacement, Neurosurgery, Spine Care and Emergency Services with
+  modern technology and patient-focused treatment.
+</p>
 
         <button
           onClick={() => navigate("/about")}
           className="
-          mt-7
-          h-11 sm:h-12
-          px-6 sm:px-8
-          rounded-xl
-          bg-[#8b1e72]
-          text-white
-          font-semibold
-          hover:bg-[#74185f]
-          transition-all
-          duration-300
-          "
+              mt-8
+    inline-flex
+    items-center
+    gap-2
+    h-12 sm:h-14
+    px-7 sm:px-9
+    rounded-xl
+    bg-gradient-to-r
+    from-[#8b1e72]
+    to-[#a52487]
+    text-white
+    text-[16px] sm:text-[17px]
+    font-semibold
+    shadow-lg
+    hover:shadow-xl
+    hover:scale-105
+    hover:from-[#74185f]
+    hover:to-[#8b1e72]
+    transition-all
+    duration-300
+  "
         >
           Know More
         </button>
@@ -262,10 +277,10 @@ const AboutSection = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#8b1e72]">
-              Patient First
+<h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
+                Patient First
             </h4>
-            <p className="text-sm text-gray-600 mt-1">
+          <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
               Personalized and compassionate care.
             </p>
           </div>
@@ -277,12 +292,12 @@ const AboutSection = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#8b1e72]">
-              Medical Excellence
+<h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
+                Medical Excellence
             </h4>
-            <p className="text-sm text-gray-600 mt-1">
-              Advanced treatments & expert doctors.
-            </p>
+          <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
+  Advanced treatments & expert doctors.
+</p>
           </div>
         </div>
 
@@ -292,10 +307,10 @@ const AboutSection = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#8b1e72]">
-              Compassionate Care
+<h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
+                Compassionate Care
             </h4>
-            <p className="text-sm text-gray-600 mt-1">
+          <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
               Respect, dignity and empathy.
             </p>
           </div>
@@ -307,10 +322,10 @@ const AboutSection = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#8b1e72]">
-              Trusted Care
+<h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
+                Trusted Care
             </h4>
-            <p className="text-sm text-gray-600 mt-1">
+          <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
               Reliable healthcare for every family.
             </p>
           </div>
@@ -352,17 +367,17 @@ const AboutSection = () => {
 
 
            <div className="w-10 h-[2px] bg-[#c9a227]" />
-          <span className="uppercase tracking-[2px] text-[11px] sm:text-xs font-semibold text-[#8b1e72]">
+          <span className="uppercase tracking-[2px] text-[13px] sm:text-[17px] sm:text-xs font-semibold text-[#8b1e72]">
             Specialist Consultation
           </span>
         </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#8b1e72] leading-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-5xl font-bold text-[#8b1e72] leading-tight">
             Book Care With The Right Specialist
           </h2>
 
-          <p className="mt-4 text-gray-600 text-sm sm:text-base leading-7 max-w-2xl">
-            Advanced Orthopedic, Trauma, Spine, Brain Surgery and Critical Care services delivered with expertise and compassion.
+<p className="mt-4 text-gray-600 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-3xl">
+              Advanced Orthopedic, Trauma, Spine, Brain Surgery and Critical Care services delivered with expertise and compassion.
           </p>
 
         </div>
