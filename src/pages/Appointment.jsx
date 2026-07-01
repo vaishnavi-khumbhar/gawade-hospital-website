@@ -1,6 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import appointmentImg from "../assets/appoinment.jpg";
+import appointment1Img from "../assets/appoinment1.png";
+import appointment2Img from "../assets/appoinment2.jpg";
+
+
 
 // Brand color (replaces the original blue with this)
 const BRAND = "#8b1e72";
@@ -24,6 +28,9 @@ const BRAND = "#8b1e72";
 //    state in devtools, so real verification must happen on your server).
 // ============================================================
 const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Google's public test key — replace with yours
+
+
+
 
 
 const SERVICES = [
@@ -98,6 +105,8 @@ function SearchableDropdown({ label, options, value, onChange, getLabel }) {
 
   const selectedLabel = value ? display(value) : "";
 
+
+  
   return (
     <div className="relative" ref={wrapRef}>
       <button
@@ -210,6 +219,18 @@ function RecaptchaBox({ onVerify, onExpire }) {
 }
 
 export default function Appointment() {
+  const slides = [appointmentImg, appointment1Img, appointment2Img];
+
+const [active, setActive] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setActive((prev) => (prev + 1) % slides.length);
+  }, 4000);
+
+  return () => clearInterval(timer);
+}, []);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -268,11 +289,16 @@ export default function Appointment() {
       <div className="block md:hidden">
         {/* Image */}
         <div className="relative w-full" style={{ height: "220px" }}>
-          <img
-            src={appointmentImg}
-            alt="Appointment"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+         {slides.map((img, index) => (
+  <img
+    key={index}
+    src={img}
+    alt={`Slide ${index + 1}`}
+    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+      active === index ? "opacity-100" : "opacity-0"
+    }`}
+  />
+))}
         
         </div>
 
@@ -342,11 +368,16 @@ className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leadi
       {/* ── DESKTOP HERO ── hidden on mobile, original overlay layout */}
       <div className="hidden md:block">
         <div className="relative w-full" style={{ height: "550px" }}>
-          <img
-            src={appointmentImg}
-            alt="Appointment"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+          {slides.map((img, index) => (
+  <img
+    key={index}
+    src={img}
+    alt={`Slide ${index + 1}`}
+    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+      active === index ? "opacity-100" : "opacity-0"
+    }`}
+  />
+))}
           <div
             className="absolute inset-0"
             style={{
@@ -403,6 +434,17 @@ className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leadi
         </div>
       </div>
 
+<div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+  {slides.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => setActive(index)}
+      className={`rounded-full duration-300 ${
+        active === index ? "w-8 h-3 bg-white" : "w-3 h-3 bg-white/50"
+      }`}
+    />
+  ))}
+</div>
       {/* ============================================================
           BREADCRUMB
       ============================================================ */}

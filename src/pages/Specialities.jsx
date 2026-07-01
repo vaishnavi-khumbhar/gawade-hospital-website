@@ -25,7 +25,15 @@ import {
 import { RiMentalHealthFill } from "react-icons/ri";
 import { TbPhysotherapist } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+
 import SpecilitiesImg from "../assets/Specilities.jpg";
+import Specilities1Img from "../assets/Specilities1.jpg";
+
+
+const slides = [
+  SpecilitiesImg,
+  Specilities1Img,
+];
 
 const BRAND = "#8b1e72";
 const BRAND_LIGHT = "#f8e8f3";
@@ -123,6 +131,7 @@ function useReveal() {
 
 /* ── Single animated card ── */
 function SpecialityCard({ item, index }) {
+
   const navigate = useNavigate();
 
   const [ref, visible] = useReveal();
@@ -205,7 +214,18 @@ function SpecialityCard({ item, index }) {
 }
 
 export default function Specialities() {
-  const [heroRef, heroVisible] = useReveal();
+
+  const [active, setActive] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setActive((prev) => (prev + 1) % slides.length);
+  }, 4000);
+
+  return () => clearInterval(timer);
+}, []);
+
+const [heroRef, heroVisible] = useReveal();
 
   return (
     <>
@@ -220,11 +240,16 @@ export default function Specialities() {
         {/* Image */}
 
          <div className="relative w-full" style={{ height: "220px" }}>
-                  <img
-                    src={SpecilitiesImg}
-  alt="Hospital operating theatre"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                 {slides.map((img, index) => (
+  <img
+    key={index}
+    src={img}
+    alt={`Slide ${index + 1}`}
+    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+      active === index ? "opacity-100" : "opacity-0"
+    }`}
+  />
+))}
                 
                 </div>
 
@@ -277,11 +302,16 @@ export default function Specialities() {
         <section className="relative w-full h-[550px] overflow-hidden">
 
   {/* Background Image */}
+ {slides.map((img, index) => (
   <img
-    src={SpecilitiesImg}
-    alt="Hospital operating theatre"
-    className="absolute inset-0 w-full h-full object-cover"
+    key={index}
+    src={img}
+    alt={`Slide ${index + 1}`}
+    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+      active === index ? "opacity-100" : "opacity-0"
+    }`}
   />
+))}
 
   {/* Purple Gradient Overlay */}
   <div
