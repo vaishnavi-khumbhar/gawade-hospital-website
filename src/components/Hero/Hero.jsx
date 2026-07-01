@@ -6,10 +6,15 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+import slider13 from "../../assets/images/slider13.jpg";
+import slider2 from "../../assets/images/slider2.jpg";
+import slider11 from "../../assets/images/slider11.jpg";
+
 const slides = [
-  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1600&auto=format&fit=crop",
+  slider13,
+  slider11,
+  slider2,
+  
 ];
 
 export default function Hero() {
