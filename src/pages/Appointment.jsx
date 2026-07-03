@@ -112,7 +112,7 @@ function SearchableDropdown({ label, options, value, onChange, getLabel }) {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white text-left flex items-center justify-between focus:outline-none focus:ring-2"
+        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white text-left flex items-center justify-between focus:outline-none focus:ring-2 text-base"
         style={{ "--tw-ring-color": BRAND }}
       >
         <span className={selectedLabel ? "text-gray-700" : "text-gray-400"}>
@@ -145,13 +145,13 @@ function SearchableDropdown({ label, options, value, onChange, getLabel }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search..."
-              className="w-full px-3 py-2 rounded-md border border-gray-300 text-sm focus:outline-none focus:ring-2"
+              className="w-full px-3 py-2 rounded-md border border-gray-300 text-base focus:outline-none focus:ring-2"
               style={{ "--tw-ring-color": BRAND }}
             />
           </div>
           <div className="max-h-56 overflow-y-auto">
             {filtered.length === 0 ? (
-              <p className="px-4 py-3 text-sm text-gray-400">No results found.</p>
+              <p className="px-4 py-3 text-base text-gray-400">No results found.</p>
             ) : (
               filtered.map((opt, idx) => (
                 <button
@@ -162,7 +162,7 @@ function SearchableDropdown({ label, options, value, onChange, getLabel }) {
                     setOpen(false);
                     setQuery("");
                   }}
-                  className="w-full text-left px-4 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors"
+                  className="w-full text-left px-4 py-2.5 text-base font-medium hover:bg-gray-50 transition-colors"
                   style={{ color: BRAND }}
                 >
                   {display(opt)}
@@ -500,12 +500,12 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
               <p className="text-xl sm:text-2xl font-bold mb-2" style={{ color: BRAND }}>
                 Thank you, {form.name}!
               </p>
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+              <p className="text-gray-600 mb-6 text-base sm:text-lg">
                 Your appointment request has been received. Our team will contact you shortly to confirm.
               </p>
               <button
                 onClick={handleClear}
-                className="font-semibold px-6 py-3 rounded-md text-white text-sm sm:text-base"
+                className="font-semibold px-6 py-3 rounded-md text-white text-base sm:text-lg"
                 style={{ backgroundColor: BRAND }}
               >
                 Book Another Appointment
@@ -520,7 +520,7 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
                   placeholder="Name*"
                   value={form.name}
                   onChange={handleChange("name")}
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-sm"
+                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-base"
                   style={{ "--tw-ring-color": BRAND }}
                 />
                 <input
@@ -528,7 +528,7 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
                   placeholder="Email ID"
                   value={form.email}
                   onChange={handleChange("email")}
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-sm"
+                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-base"
                   style={{ "--tw-ring-color": BRAND }}
                 />
                 <input
@@ -536,7 +536,7 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
                   placeholder="Contact No.*"
                   value={form.contact}
                   onChange={handleChange("contact")}
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-sm"
+                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-base"
                   style={{ "--tw-ring-color": BRAND }}
                 />
                 <input
@@ -544,7 +544,7 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
                   placeholder="Location"
                   value={form.location}
                   onChange={handleChange("location")}
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-sm"
+                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-base"
                   style={{ "--tw-ring-color": BRAND }}
                 />
               </div>
@@ -570,10 +570,10 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
                     min="0"
                     value={form.age}
                     onChange={handleChange("age")}
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-sm"
+                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-base"
                     style={{ "--tw-ring-color": BRAND }}
                   />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 pointer-events-none">
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-400 pointer-events-none">
                     Age
                   </span>
                 </div>
@@ -583,7 +583,7 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
               <div className="flex flex-col gap-5">
                 <div>
                   {recaptchaError && (
-                    <p className="text-red-600 text-sm mb-2">
+                    <p className="text-red-600 text-base mb-2">
                       Please verify the reCAPTCHA before submitting.
                     </p>
                   )}
@@ -609,14 +609,14 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
 <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 sm:justify-end">
                     <button
                     onClick={handleSubmit}
-                    className="w-full sm:w-auto text-white font-semibold px-10 py-3 rounded-md shadow transition-transform hover:scale-[1.02] text-sm sm:text-base"
+                    className="w-full sm:w-auto text-white font-semibold px-10 py-3 rounded-md shadow transition-transform hover:scale-[1.02] text-base sm:text-lg"
                     style={{ backgroundColor: "#e30613" }}
                   >
                     Submit
                   </button>
                   <button
                     onClick={handleClear}
-                    className="w-full sm:w-auto font-semibold px-10 py-3 rounded-md transition-colors text-sm sm:text-base"
+                    className="w-full sm:w-auto font-semibold px-10 py-3 rounded-md transition-colors text-base sm:text-lg"
                     style={{ backgroundColor: `${BRAND}1a`, color: BRAND }}
                   >
                     Clear
