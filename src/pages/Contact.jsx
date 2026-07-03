@@ -10,7 +10,17 @@ import {
   FaUserMd,
 } from "react-icons/fa";
 import { MdMedicalServices } from "react-icons/md";
-import contactImg from "../assets/contact.jpg";
+
+
+import contact1Img from "../assets/contact1.jpg";
+import contact2Img from "../assets/contact2.jpg";
+import contact3Img from "../assets/contact3.png";
+
+const slides = [
+  contact1Img,
+  contact2Img,
+  contact3Img,
+];
 
 const BRAND = "#8b1e72";
 const BRAND_LIGHT = "#f8e8f3";
@@ -46,6 +56,7 @@ const MAP_EMBED_URL =
   "https://www.google.com/maps?q=Gawade+Hospital+Baramati&output=embed";
 
 function SearchableDropdown({ label, options, value, onChange, getLabel }) {
+  
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const wrapRef = useRef(null);
@@ -194,6 +205,15 @@ function InfoCard({ icon, title, children }) {
 }
 
 export default function Contact() {
+  const [active, setActive] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setActive((prev) => (prev + 1) % slides.length);
+  }, 4000);
+
+  return () => clearInterval(timer);
+}, []);
   /* ── Appointment form state ── */
   const [aptForm, setAptForm] = useState({
     name: "",
@@ -290,21 +310,47 @@ export default function Contact() {
       ============================================================ */}
 
       {/* ── MOBILE HERO ── */}
-      <div className="block md:hidden">
-        <div className="relative w-full" style={{ height: "220px" }}>
-          <img
-            src={contactImg}
-            alt="Contact Gawade Hospital"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
+     <div className="block md:hidden">
+  <div className="relative w-full h-[230px] overflow-hidden">
 
-        <div
-          className="px-5 py-6"
-          style={{
-            background: `linear-gradient(135deg, ${BRAND}f0 0%, ${BRAND}cc 100%)`,
-          }}
-        >
+    {slides.map((img, index) => (
+      <img
+        key={index}
+        src={img}
+        alt={`Slide ${index + 1}`}
+        className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${
+          active === index ? "opacity-100" : "opacity-0"
+        }`}
+      />
+    ))}
+
+    {/* Slider Dots */}
+    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      {slides.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setActive(index)}
+          className={`rounded-full transition-all duration-300 ${
+            active === index
+              ? "w-6 h-2.5 bg-white"
+              : "w-2.5 h-2.5 bg-white/60"
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+
+  <div
+    className="px-5 py-6"
+    style={{
+      background: `linear-gradient(135deg, ${BRAND}f0 0%, ${BRAND}cc 100%)`,
+    }}
+  >
+
+
+
+
+
           <h1
             className="text-white text-4xl font-extrabold mb-3 leading-tight drop-shadow-md"
             style={{ fontFamily: "Signika, sans-serif" }}
@@ -341,57 +387,89 @@ export default function Contact() {
       </div>
 
       {/* ── DESKTOP HERO ── */}
-      <div className="hidden md:block">
-        <div className="relative w-full" style={{ height: "480px" }}>
-          <img
-            src={contactImg}
-            alt="Contact Gawade Hospital"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(80deg, ${BRAND}eb 0%, ${BRAND}d1 20%, ${BRAND}8c 30%, ${BRAND}2e 75%, ${BRAND}00 100%)`,
-            }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, transparent 70%, #ffffff 100%)" }}
-          />
+      {/* ── DESKTOP HERO ── */}
+<div className="hidden md:block">
+ <div className="relative w-full h-[420px] lg:h-[560px] overflow-hidden">
+  {slides.map((img, index) => (
+    <img
+      key={index}
+      src={img}
+      alt={`Slide ${index + 1}`}
+      className={`absolute inset-0 w-full h-full object-cover object-[center_30%] transition-opacity duration-1000 ${
+        active === index ? "opacity-100" : "opacity-0"
+      }`}
+    />
+    ))}
 
-          <div className="relative h-full max-w-6xl mx-auto px-10 flex flex-col justify-center">
-            <h1
-              className="text-white text-5xl md:text-6xl font-extrabold mb-5 drop-shadow-sm"
-              style={{ fontFamily: "Signika, sans-serif" }}
-            >
-              Contact Us
-            </h1>
-            <p
-              className="text-white/90 text-lg md:text-xl max-w-2xl leading-8 mb-8"
-              style={{ fontFamily: "Signika, sans-serif" }}
-            >
-              Get in touch with our team for appointments, enquiries, or emergency
-              support. We're here to help you and your family, round the clock.
-            </p>
-            <div className="flex gap-4" style={{ fontFamily: "Signika, sans-serif" }}>
-              <Link to="/appointment">
-                <button
-                  className="text-white font-semibold px-6 py-3 rounded-md shadow transition-transform hover:scale-[1.03]"
-                  style={{ backgroundColor: "#e30613" }}
-                >
-                  Book Appointment
-                </button>
-              </Link>
-              <a href="tel:+91-XXXXXXXXXX">
-                <button className="bg-transparent border border-white text-white font-semibold px-6 py-3 rounded-md transition-colors hover:bg-white/10">
-                  Call Emergency
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
+    {/* Purple Overlay */}
+    <div
+      className="absolute inset-0"
+      style={{
+        background: `linear-gradient(
+          80deg,
+          ${BRAND}eb 0%,
+          ${BRAND}d1 20%,
+          ${BRAND}8c 35%,
+          ${BRAND}2e 75%,
+          ${BRAND}00 100%
+        )`,
+      }}
+    />
+
+    {/* Bottom Fade */}
+    <div
+      className="absolute inset-0"
+      style={{
+        background: "linear-gradient(180deg, transparent 70%, #ffffff 100%)",
+      }}
+    />
+
+    {/* ✅ ONLY ONE content div now, z-10 to stay above overlays */}
+    <div className="relative z-10 h-full max-w-6xl mx-auto px-10 flex flex-col justify-center">
+      <h1
+        className="text-white text-5xl md:text-6xl font-extrabold mb-5 drop-shadow-sm"
+        style={{ fontFamily: "Signika, sans-serif" }}
+      >
+        Contact Us
+      </h1>
+      <p
+        className="text-white/90 text-lg md:text-xl max-w-2xl leading-8 mb-8"
+        style={{ fontFamily: "Signika, sans-serif" }}
+      >
+        Get in touch with our team for appointments, enquiries, or emergency
+        support. We're here to help you and your family, round the clock.
+      </p>
+      <div className="flex gap-4" style={{ fontFamily: "Signika, sans-serif" }}>
+        <Link to="/appointment">
+          <button
+            className="text-white font-semibold px-6 py-3 rounded-md shadow transition-transform hover:scale-[1.03]"
+            style={{ backgroundColor: "#e30613" }}
+          >
+            Book Appointment
+          </button>
+        </Link>
+        <a href="tel:+91-XXXXXXXXXX">
+          <button className="bg-transparent border border-white text-white font-semibold px-6 py-3 rounded-md transition-colors hover:bg-white/10">
+            Call Emergency
+          </button>
+        </a>
       </div>
+    </div>
 
+    {/* Slider Dots */}
+    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+      {slides.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setActive(index)}
+          className={`rounded-full transition-all duration-300 ${
+            active === index ? "w-8 h-3 bg-white" : "w-3 h-3 bg-white/50"
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+</div>
       {/* ============================================================
           BREADCRUMB
       ============================================================ */}

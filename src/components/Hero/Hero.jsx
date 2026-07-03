@@ -7,12 +7,13 @@ import {
 } from "lucide-react";
 
 import slider13 from "../../assets/images/slider13.jpg";
+import slider14 from "../../assets/images/slider14.jpg";
+
 import slider2 from "../../assets/images/slider2.jpg";
-import slider11 from "../../assets/images/slider11.jpg";
 
 const slides = [
   slider13,
-  slider11,
+  slider14,
   slider2,
   
 ];
@@ -172,7 +173,7 @@ export default function Hero() {
       {/* full-bleed background image with text overlaid on top         */}
       {/* ============================================================ */}
 
-      <div className="hidden md:block relative h-[510px]">
+      <div className="hidden md:block relative h-[530px]">
 
         <div className="absolute inset-0">
           {slides.map((img, index) => (
@@ -182,7 +183,9 @@ export default function Hero() {
               alt=""
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 active === index ? "opacity-100" : "opacity-0"
-              }`}
+              }`}   
+                    style={{ objectPosition: "center 26%" }}
+
             />
           ))}
 

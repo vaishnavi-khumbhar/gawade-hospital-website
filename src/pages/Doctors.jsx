@@ -2,8 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import { MdMedicalServices } from "react-icons/md";
 import { FaUserMd, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import DoctorsImg from "../assets/docters.jpg";
 
+import DoctorsImg from "../assets/docters.jpg";
+import Doctors1Img from "../assets/docters1.jpg";
+import Doctors2Img from "../assets/docter2.jpg";
+
+
+const slides = [
+  DoctorsImg,
+  Doctors1Img,
+  Doctors2Img,
+];
 
 // ── If you have a local asset, swap this import:
 // import DoctorsImg from "../assets/Doctors.jpg";
@@ -236,18 +245,34 @@ function DoctorCard({ doctor, index }) {
    (same pattern as Specialities.jsx)
 ══════════════════════════════════════ */
 function DoctorsHero() {
+  const [active, setActive] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setActive((prev) => (prev + 1) % slides.length);
+  }, 4000);
+
+  return () => clearInterval(timer);
+}, []);
+
   const [heroRef, heroVisible] = useReveal();
 
   return (
     <>
       {/* ── MOBILE HERO ── */}
       <div className="block md:hidden">
-       <div className="relative w-full h-[220pxpx] sm:h-[220px] overflow-hidden md:hidden">
+       <div className="relative w-full h-[220px] sm:h-[220px] overflow-hidden md:hidden">
+  {slides.map((img, index) => (
   <img
-    src={DoctorsImg}
-    alt="Doctors at Gawade Hospital"
-    className="w-full h-full object-cover object-center"
+    key={index}
+    src={img}
+    alt={`Slide ${index + 1}`}
+    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+      active === index ? "opacity-100" : "opacity-0"
+    }`}
   />
+))}
+
 </div>
 
         <div
@@ -293,11 +318,16 @@ function DoctorsHero() {
       {/* ── DESKTOP HERO ── */}
       <div className="hidden md:block">
         <section className="relative w-full overflow-hidden" style={{ height: "500px" }}>
-          <img
-            src={DoctorsImg}
-            alt="Doctors at Gawade Hospital"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+         {slides.map((img, index) => (
+  <img
+    key={index}
+    src={img}
+    alt={`Slide ${index + 1}`}
+    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+      active === index ? "opacity-100" : "opacity-0"
+    }`}
+  />
+))}
 
           {/* Left-heavy brand overlay */}
           <div

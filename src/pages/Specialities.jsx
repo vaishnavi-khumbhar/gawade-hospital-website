@@ -28,11 +28,13 @@ import { useNavigate } from "react-router-dom";
 
 import SpecilitiesImg from "../assets/Specilities.jpg";
 import Specilities1Img from "../assets/Specilities1.jpg";
+import Specilities2Img from "../assets/Specilities2.jpg";
 
 
 const slides = [
   SpecilitiesImg,
   Specilities1Img,
+  Specilities2Img,
 ];
 
 const BRAND = "#8b1e72";
@@ -308,8 +310,11 @@ const [heroRef, heroVisible] = useReveal();
     src={img}
     alt={`Slide ${index + 1}`}
     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-      active === index ? "opacity-100" : "opacity-0"
-    }`}
+                active === index ? "opacity-100" : "opacity-0"
+              }`}   
+                    style={{ objectPosition: "center 26%" }}
+
+   
   />
 ))}
 

@@ -5,9 +5,7 @@ import Facilities from "../components/Facilities/Facilities";
 import DoctorsSection from "../components/Doctors/DoctorsSection";
 import Testimonials from "../components/Testimonials/Testimonials";
 import GallerySection from "../components/Gallery/GallerySection";
-import ContactSection from "../components/Contact/ContactSection";
-
-
+import ContactSection from "../components/Contact/ContactSection";   
 
 const Home = () => {
   return (
@@ -19,7 +17,6 @@ const Home = () => {
        <Facilities />
        <GallerySection />
        <Testimonials />
-      
       <ContactSection />
     </>
   );

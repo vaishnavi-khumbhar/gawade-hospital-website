@@ -8,11 +8,10 @@ import {
   FaEye,
   FaHospitalUser,
 } from "react-icons/fa";
-// import AboutImg from "../assets/about.jpg";
+import AboutImg from "../assets/about.png";
 
 
-const AboutImg =
-  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop";
+
 const BRAND = "#8b1e72";
 const BRAND_LIGHT = "#f8e8f3";
 const BRAND_DARK = "#74185f";
@@ -171,12 +170,13 @@ function AboutHero() {
 
       {/* ── DESKTOP HERO ── */}
       <div className="hidden md:block">
-        <section className="relative w-full overflow-hidden" style={{ height: "500px" }}>
-          <img
-            src={AboutImg}
-            alt="About Gawade Hospital"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        <section className="relative w-full overflow-hidden" style={{ height: "530px" }}>
+         <img
+  src={AboutImg}
+  alt="About Gawade Hospital"
+  className="absolute inset-0 w-full h-full object-cover"
+  style={{ objectPosition: "center 80%" }}
+/>
 
           {/* Left-heavy brand overlay */}
           <div
