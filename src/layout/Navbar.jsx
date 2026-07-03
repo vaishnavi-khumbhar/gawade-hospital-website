@@ -504,16 +504,16 @@ changeLanguage("en");
                     {t("tagline")}
                   </p>
 
-                  <h2
-                    className="text-xl sm:text-2xl md:text-3xl leading-none"
-                    style={{
-                      fontFamily: "Oswald, sans-serif",
-                      fontWeight: 600,
-                      color: "#8b1e72",
-                    }}
-                  >
-                    Gawade Hospital
-                  </h2>
+                 <h2
+  className="text-xl sm:text-3xl md:text-3xl leading-none"
+  style={{
+    fontFamily: "Signika, sans-serif",
+    fontWeight: 800,
+    color: "#8b1e72",
+  }}
+>
+  Gawade Hospital
+</h2>
                 </div>
 
               </div>
@@ -751,13 +751,13 @@ changeLanguage("en");
             <img src={logo} alt="Gawade Hospital" className="h-10 w-auto object-contain" />
 
           
-             
-            <span
-              className="text-lg"
-              style={{ fontFamily: "Prata, serif", color: "#8b1e72" }}
-            >
-              Gawade Hospital
-            </span>
+           <span
+  className="text-2xl sm:text-3xl lg:text-4xl font-semibold"
+  style={{ fontFamily: "Signika, sans-serif", color: "#8b1e72" }}
+>
+  Gawade Hospital
+</span>
+
           </div>
 
           <button
