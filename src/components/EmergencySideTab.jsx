@@ -39,15 +39,15 @@ export default function EmergencySideTab() {
               </a>
 
               <a
-                href="tel:+912012345678"
+                href="tel:+91 7420932217"
                 className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"
               >
                 <Phone size={18} className="text-[#8b1e72]" />
-                <span>Call +91 20 1234 5678</span>
+                <span>Call +91 7420932217</span>
               </a>
 
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/9860017620"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"

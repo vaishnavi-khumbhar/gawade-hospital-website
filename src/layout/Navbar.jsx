@@ -28,62 +28,64 @@ import {
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserDoctor } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 /* SPECIALITIES MEGA MENU DATA
    Organized from Gawade Hospital's actual service list into
-   Ruby Hall style 4-column groups */
+   Ruby Hall style 4-column groups. Labels use translation keys
+   so the mega menu switches language along with the rest of the site. */
 
 const specialitiesData = [
   {
-    heading: "Orthopedic & Surgical Care",
+    headingKey: "spec_heading_ortho",
     items: [
-      { icon: FaBone, label: "Orthopedic & Trauma Care" },
-      { icon: FaWalking, label: "Knee Replacement Surgery" },
-      { icon: FaWalking, label: "Hip Replacement Surgery" },
-      { icon: FaBone, label: "Fracture Management" },
-      { icon: FaUserMd, label: "Joint Reconstruction Procedures" },
-      { icon: FaHeartbeat, label: "Sports Injury Management" },
+      { icon: FaBone, labelKey: "spec_ortho_1" },
+      { icon: FaWalking, labelKey: "spec_ortho_2" },
+      { icon: FaWalking, labelKey: "spec_ortho_3" },
+      { icon: FaBone, labelKey: "spec_ortho_4" },
+      { icon: FaUserMd, labelKey: "spec_ortho_5" },
+      { icon: FaHeartbeat, labelKey: "spec_ortho_6" },
     ],
   },
   {
-    heading: "Neuro & Spine Care",
+    headingKey: "spec_heading_neuro",
     items: [
-      { icon: FaBrain, label: "Brain & Neurosurgery" },
-      { icon: FaProcedures, label: "Spine Surgery" },
-      { icon: FaProcedures, label: "Spinal Trauma Management" },
-      { icon: FaUserMd, label: "Minimally Invasive Spine Procedures" },
-      { icon: FaUserMd, label: "Plastic & Reconstructive Surgery" },
+      { icon: FaBrain, labelKey: "spec_neuro_1" },
+      { icon: FaProcedures, labelKey: "spec_neuro_2" },
+      { icon: FaProcedures, labelKey: "spec_neuro_3" },
+      { icon: FaUserMd, labelKey: "spec_neuro_4" },
+      { icon: FaUserMd, labelKey: "spec_neuro_5" },
     ],
   },
   {
-    heading: "Critical & Emergency Care",
+    headingKey: "spec_heading_critical",
     items: [
-      { icon: FaAmbulance, label: "Emergency & Trauma Care" },
-      { icon: FaProcedures, label: "ICU & Critical Care Unit" },
-      { icon: FaSyringe, label: "Accident & Trauma Management" },
-      { icon: FaAmbulance, label: "Ambulance Assistance" },
-      { icon: FaHeartbeat, label: "24x7 Emergency Support" },
+      { icon: FaAmbulance, labelKey: "spec_critical_1" },
+      { icon: FaProcedures, labelKey: "spec_critical_2" },
+      { icon: FaSyringe, labelKey: "spec_critical_3" },
+      { icon: FaAmbulance, labelKey: "spec_critical_4" },
+      { icon: FaHeartbeat, labelKey: "spec_critical_5" },
     ],
   },
   {
-    heading: "Diagnostics & Rehabilitation",
+    headingKey: "spec_heading_diagnostics",
     items: [
-      { icon: FaXRay, label: "CT Scan & Diagnostic Services" },
-      { icon: FaWheelchair, label: "Physiotherapy & Rehabilitation" },
-      { icon: FaShieldAlt, label: "Cashless Insurance Facility" },
-      { icon: FaUserMd, label: "Modern Diagnostic Support" },
+      { icon: FaXRay, labelKey: "spec_diag_1" },
+      { icon: FaWheelchair, labelKey: "spec_diag_2" },
+      { icon: FaShieldAlt, labelKey: "spec_diag_3" },
+      { icon: FaUserMd, labelKey: "spec_diag_4" },
     ],
   },
 ];
 
 const navLinks = [
-  { label: "Doctors", href: "/doctors" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
+  { labelKey: "nav_doctors", href: "/doctors" },
+  { labelKey: "nav_about", href: "/about" },
+  { labelKey: "nav_contact", href: "/contact" },
 ];
 
 const EMERGENCY_NUMBER = "+919876543210";
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "+9860017620";
 const EMAIL = "info@gawadehospital.com";
 
 const Navbar = () => {
@@ -100,6 +102,21 @@ const Navbar = () => {
     setMobileOpen(false);
     setMobileSpecialitiesOpen(false);
   };
+
+  const { t, i18n } = useTranslation();
+
+const changeLanguage = (lang) => {
+  i18n.changeLanguage(lang);
+  localStorage.setItem("lang", lang);
+
+  if (lang === "en") {
+    setSelectedLanguage("English");
+  } else if (lang === "mr") {
+    setSelectedLanguage("मराठी");
+  } else {
+    setSelectedLanguage("हिंदी");
+  }
+};
 
   /* Lock body scroll while the mobile drawer is open. Without this,
      the page behind the drawer keeps scrolling, which is what was
@@ -142,7 +159,7 @@ const Navbar = () => {
 
             <div className="flex items-center gap-1.5">
               <FaClock className="text-xs" />
-              <span className="font-semibold">24x7 Emergency Service</span>
+              <span className="font-semibold">{t("topbar_emergencyService")}</span>
             </div>
 
             <div className="flex items-center gap-1.5">
@@ -152,7 +169,7 @@ const Navbar = () => {
 
             <div className="hidden lg:flex items-center gap-1.5">
               <FaMapMarkerAlt className="text-xs" />
-              <span className="font-semibold">Baramati, Maharashtra</span>
+              <span className="font-semibold">{t("topbar_address")}</span>
             </div>
 
           </div>
@@ -287,32 +304,28 @@ const Navbar = () => {
 
             <div className="relative">
               <select
-                className="
-                h-8
-                w-28
-                pl-3
-                pr-8
-                rounded-full
-                bg-white
-                border border-[#e7c8db]
-                text-[#8b1e72]
-                text-xs
-                font-semibold
-                shadow-sm
-                outline-none
-                cursor-pointer
-                appearance-none
-                hover:border-[#8b1e72]
-                focus:border-[#8b1e72]
-                focus:ring-2
-                focus:ring-[#8b1e72]/20
-                transition-all duration-300
-              "
-              >
-                <option>English</option>
-                <option>मराठी</option>
-                <option>हिंदी</option>
-              </select>
+  value={i18n.language}
+  onChange={(e) => changeLanguage(e.target.value)}
+  className="
+    h-8
+    w-28
+    pl-3
+    pr-8
+    rounded-full
+    bg-white
+    border border-[#e7c8db]
+    text-[#8b1e72]
+    text-xs
+    font-semibold
+    outline-none
+    appearance-none
+    cursor-pointer
+  "
+>
+  <option value="en">English</option>
+  <option value="mr">मराठी</option>
+  <option value="hi">हिंदी</option>
+</select>
 
               {/* Custom Arrow */}
               <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#8b1e72] text-[10px]">
@@ -363,11 +376,6 @@ const Navbar = () => {
       {/* MOBILE TOP STRIP — replaces the top bar on small screens     */}
       {/* ============================================================ */}
 
-      {/* ✅ FIX: added `relative z-[10002]` here so this whole strip
-          (and the language dropdown inside it) renders ABOVE the
-          main <nav> below, which has z-[9999]. Previously this strip
-          had no stacking context of its own, so the open dropdown was
-          rendering behind the navbar instead of on top of it. */}
       <div className="bg-[#8b1e72] lg:hidden relative z-[9999]">
         <div className="flex items-center justify-center gap-2 px-2 py-1.5">
 
@@ -387,7 +395,7 @@ const Navbar = () => {
             whitespace-nowrap
           "
           >
-            Book Appointment
+            {t("bookNow")}
           </Link>
 
           {/* Premium Language Dropdown */}
@@ -429,7 +437,7 @@ const Navbar = () => {
               >
                 <button
                   onClick={() => {
-                    setSelectedLanguage("English");
+changeLanguage("en");
                     setLanguageOpen(false);
                   }}
                   className="w-full text-left px-3 py-2 text-[11px] text-[#8b1e72] hover:bg-[#f3e6ef]"
@@ -439,7 +447,7 @@ const Navbar = () => {
 
                 <button
                   onClick={() => {
-                    setSelectedLanguage("मराठी");
+                    changeLanguage("mr");
                     setLanguageOpen(false);
                   }}
                   className="w-full text-left px-3 py-2 text-[11px] text-[#8b1e72] hover:bg-[#f3e6ef]"
@@ -449,7 +457,7 @@ const Navbar = () => {
 
                 <button
                   onClick={() => {
-                    setSelectedLanguage("हिंदी");
+                    changeLanguage("hi");
                     setLanguageOpen(false);
                   }}
                   className="w-full text-left px-3 py-2 text-[11px] text-[#8b1e72] hover:bg-[#f3e6ef]"
@@ -493,7 +501,7 @@ const Navbar = () => {
                     className="text-[9px] sm:text-[10px] md:text-[11px] tracking-[1px] uppercase text-[#b04a95]"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Caring For Life !
+                    {t("tagline")}
                   </p>
 
                   <h2
@@ -528,7 +536,7 @@ const Navbar = () => {
   to="/appointment"
   className="text-base hover:text-[#5e1550]  duration-300"
 >
-  Book an Appointment
+  {t("appointment")}
 </Link>
               </li>
 
@@ -546,7 +554,7 @@ const Navbar = () => {
   to="/specialities"
   className="flex items-center gap-1.5 text-base hover:text-[#5e1550] duration-300 cursor-pointer"
 >
-  Specialities
+  {t("specialities")}
   <FaChevronDown
     className={`text-[10px] duration-300 ${
       showSpecialities ? "rotate-180" : ""
@@ -592,7 +600,7 @@ const Navbar = () => {
 
                             <h3 className="flex items-center gap-2 text-[#8b1e72] font-bold text-[15px] pb-2 mb-2 border-b-2 border-[#f3e6ef] text-left">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#f0c419]" />
-                              {col.heading}
+                              {t(col.headingKey)}
                             </h3>
 
                             <div className="flex flex-col gap-2">
@@ -632,7 +640,7 @@ const Navbar = () => {
                                     </span>
 
                                     <span className="leading-snug group-hover:text-[#8b1e72] ">
-                                      {item.label}
+                                      {t(item.labelKey)}
                                     </span>
                                   </Link>
                                 );
@@ -648,14 +656,14 @@ const Navbar = () => {
                       {/* Footer CTA strip */}
                       <div className="mt-5 pt-4 border-t border-[#f3e6ef] flex items-center justify-between gap-4">
                         <p className="text-sm text-gray-500">
-                          Can't find what you're looking for?
+                          {t("cta_cantFind")}
                         </p>
                         <Link
                           to="/specialities"
                           onClick={() => setShowSpecialities(false)}
                           className="text-sm font-semibold text-white bg-[#8b1e72] hover:bg-[#5e1550] px-4 py-2 rounded-lg duration-300 whitespace-nowrap"
                         >
-                          View All Specialities
+                          {t("cta_viewAll")}
                         </Link>
                       </div>
 
@@ -666,8 +674,8 @@ const Navbar = () => {
               </li>
 
               {navLinks.map((link) => (
-                <li key={link.label} className="hover:text-[#5e1550] cursor-pointer duration-300 text-base">
-                  <Link to={link.href}>{link.label}</Link>
+                <li key={link.labelKey} className="hover:text-[#5e1550] cursor-pointer duration-300 text-base">
+                  <Link to={link.href}>{t(link.labelKey)}</Link>
                 </li>
               ))}
             </ul>
@@ -679,7 +687,7 @@ const Navbar = () => {
               className="hidden md:flex lg:hidden items-center gap-2 bg-[#8b1e72] text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#5e1550] duration-300"
             >
               <FaPhoneAlt className="text-xs" />
-              Call Now
+              {t("mobile_call")}
             </a>
 
             {/* Hamburger — mobile & tablet.
@@ -715,10 +723,6 @@ const Navbar = () => {
       {/* MOBILE DRAWER MENU                                            */}
       {/* ============================================================ */}
 
-      {/* Backdrop.
-          z-[10000] — must be higher than the navbar's z-[9999], otherwise
-          the navbar (and its hamburger button) renders on top of the
-          drawer/backdrop instead of being covered by it. */}
       <div
         onClick={closeMobileMenu}
         className={`
@@ -728,10 +732,6 @@ const Navbar = () => {
       `}
       />
 
-      {/* Drawer panel.
-          z-[10001] — above the backdrop, and above the navbar's z-[9999].
-          Width: full width on very small phones (so it doesn't look like
-          a half-open sliver), and a capped width on larger phones/tablets. */}
       <div
         className={`
         fixed top-0 right-0 h-full
@@ -780,7 +780,7 @@ const Navbar = () => {
                 onClick={closeMobileMenu}
                 className="block px-5 py-4 hover:bg-[#f3e6ef]"
               >
-                Book an Appointment
+                {t("mobile_bookAppointment")}
               </Link>
             </li>
 
@@ -790,7 +790,7 @@ const Navbar = () => {
                 onClick={() => setMobileSpecialitiesOpen((v) => !v)}
                 className="w-full flex items-center justify-between px-5 py-4 hover:bg-[#f3e6ef]"
               >
-                Specialities
+                {t("specialities")}
                 <FaChevronDown
                   className={`text-xs duration-300 ${
                     mobileSpecialitiesOpen ? "rotate-180" : ""
@@ -811,7 +811,7 @@ const Navbar = () => {
 
                       <h4 className="flex items-center gap-2 text-[13px] font-bold text-[#8b1e72] uppercase tracking-wide mb-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#f0c419]" />
-                        {col.heading}
+                        {t(col.headingKey)}
                       </h4>
 
                       <div className="flex flex-col gap-1.5">
@@ -828,7 +828,7 @@ const Navbar = () => {
                               <span className="w-7 h-7 shrink-0 rounded-md bg-[#f3e6ef] text-[#8b1e72] flex items-center justify-center">
                                 <Icon className="text-[12px]" />
                               </span>
-                              <span className="leading-snug">{item.label}</span>
+                              <span className="leading-snug">{t(item.labelKey)}</span>
                             </Link>
                           );
                         })}
@@ -842,7 +842,7 @@ const Navbar = () => {
                     onClick={closeMobileMenu}
                     className="text-center text-sm font-semibold text-white bg-[#8b1e72] py-2.5 rounded-lg"
                   >
-                    View All Specialities
+                    {t("cta_viewAll")}
                   </Link>
 
                 </div>
@@ -850,13 +850,13 @@ const Navbar = () => {
             </li>
 
             {navLinks.map((link) => (
-              <li key={link.label} className="border-b border-[#f3e6ef]">
+              <li key={link.labelKey} className="border-b border-[#f3e6ef]">
                 <Link
                   to={link.href}
                   onClick={closeMobileMenu}
                   className="block px-5 py-4 hover:bg-[#f3e6ef]"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               </li>
             ))}
@@ -890,7 +890,7 @@ const Navbar = () => {
               <span className="w-9 h-9 rounded-full bg-[#f6c9e0] text-[#8b1e72] flex items-center justify-center">
                 <FaMapMarkerAlt className="text-sm" />
               </span>
-              Baramati, Maharashtra
+              {t("topbar_address")}
             </div>
 
             {/* Social icons */}
@@ -928,25 +928,21 @@ const Navbar = () => {
             className="flex-1 flex items-center justify-center gap-2 bg-[#dc2626] text-white py-3 rounded-xl font-semibold text-sm"
           >
             <FaAmbulance />
-            Emergency
+            {t("mobile_emergency")}
           </a>
           <Link
             to="/appointment"
             onClick={closeMobileMenu}
             className="flex-1 flex items-center justify-center gap-2 bg-[#8b1e72] text-white py-3 rounded-xl font-semibold text-sm"
           >
-            Book Appointment
+            {t("bookNow")}
           </Link>
         </div>
 
       </div>
 
       {/* ============================================================ */}
-      {/* MOBILE STICKY BOTTOM ACTION BAR — phone + tablet only        */}
-      {/* Fixed to the bottom of the viewport, 4 equal buttons:        */}
-      {/* Emergency (calls EMERGENCY_NUMBER) / Call / Find Doctor /    */}
-      {/* Book — each navigates or triggers its action on tap.        */}
-      {/* Theme restricted to #8b1e72 + white only, no red.           */}
+      {/* MOBILE STICKY BOTTOM ACTION BAR                              */}
       {/* ============================================================ */}
 
       <div
@@ -977,7 +973,7 @@ const Navbar = () => {
             <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
               <FaAmbulance className="text-white text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-white">Emergency</span>
+            <span className="text-[10.5px] font-semibold text-white">{t("mobile_emergency")}</span>
           </a>
 
            <a 
@@ -995,7 +991,7 @@ const Navbar = () => {
             <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm">
               <FaPhoneAlt className="text-[#8b1e72] text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-[#8b1e72]">Call</span>
+            <span className="text-[10.5px] font-semibold text-[#8b1e72]">{t("mobile_call")}</span>
           </a>
 
           <Link
@@ -1014,7 +1010,7 @@ const Navbar = () => {
             <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm">
               <FaUserDoctor className="text-[#8b1e72] text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-[#8b1e72] whitespace-nowrap">Find Doctor</span>
+            <span className="text-[10.5px] font-semibold text-[#8b1e72] whitespace-nowrap">{t("mobile_findDoctor")}</span>
           </Link>
 
           <Link
@@ -1033,7 +1029,7 @@ const Navbar = () => {
             <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
               <FaProcedures className="text-white text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-white">Book</span>
+            <span className="text-[10.5px] font-semibold text-white">{t("mobile_book")}</span>
           </Link>
 
         </div>

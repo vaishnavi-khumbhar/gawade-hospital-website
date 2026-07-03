@@ -30,6 +30,54 @@ import SpecilitiesImg from "../assets/Specilities.jpg";
 import Specilities1Img from "../assets/Specilities1.jpg";
 import Specilities2Img from "../assets/Specilities2.jpg";
 
+import Banner1 from "../assets/banners/1.jpeg";
+import Banner2 from "../assets/banners/2.jpeg";
+import Banner3 from "../assets/banners/3.jpeg";
+import Banner4 from "../assets/banners/4.jpeg";
+import Banner5 from "../assets/banners/5.jpeg";
+import Banner6 from "../assets/banners/6.jpeg";
+import Banner7 from "../assets/banners/7.jpeg";
+import Banner8 from "../assets/banners/8.jpeg";
+import Banner9 from "../assets/banners/9.jpeg";
+
+const treatmentBanners = [
+  {
+    image: Banner1,
+    title: "Gawade Hospital",
+  },
+  {
+    image: Banner2,
+    title: "Knee Replacement Surgery",
+  },
+  {
+    image: Banner3,
+    title: "Hip Replacement Surgery",
+  },
+  {
+    image: Banner4,
+    title: "Brain & Neurosurgery",
+  },
+  {
+    image: Banner5,
+    title: "ACL Ligament Reconstruction",
+  },
+  {
+    image: Banner6,
+    title: "Spine Surgery",
+  },
+  {
+    image: Banner7,
+    title: "Joint Replacement Surgery",
+  },
+  {
+    image: Banner8,
+    title: "Orthopedic & Trauma Care",
+  },
+  {
+    image: Banner9,
+    title: "Shoulder Surgery",
+  },
+];
 
 const slides = [
   SpecilitiesImg,
@@ -113,6 +161,7 @@ const specialities = [
     tag: "Insurance",
   },
 ];
+
 
 /* ── Intersection Observer hook for scroll-reveal ── */
 function useReveal() {
@@ -483,6 +532,116 @@ const [heroRef, heroVisible] = useReveal();
               <SpecialityCard key={index} item={item} index={index} />
             ))}
           </div>
+
+
+
+{/*      banner code  */}
+<section className="mt-20">
+
+  <div className="text-center mb-12">
+
+    <span
+      className="uppercase tracking-[4px] text-sm font-bold"
+      style={{ color: BRAND }}
+    >
+      Advanced Treatments
+    </span>
+
+    <h2
+      className="text-3xl md:text-5xl font-bold mt-3"
+      style={{ color: BRAND }}
+    >
+      Our Specialized Surgical Services
+    </h2>
+
+    <p className="text-gray-600 max-w-3xl mx-auto mt-5 text-lg leading-8">
+      Explore advanced surgeries and specialized treatment services available
+      at Gawade Hospital with experienced specialists and modern medical
+      technology.
+    </p>
+
+  </div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {treatmentBanners.map((item, index) => (
+
+      <div
+        key={index}
+        className="group relative overflow-hidden rounded-3xl bg-white shadow-xl border border-pink-100 hover:-translate-y-2 transition-all duration-500"
+      >
+
+        <div className="overflow-hidden rounded-t-3xl bg-white">
+
+  <img
+    src={item.image}
+    alt={item.title}
+    className="w-full h-auto object-contain transition-all duration-500 group-hover:scale-105"
+  />
+
+</div>
+
+        {/* Overlay */}
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#8b1e72]/90 via-[#8b1e72]/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end">
+
+          <div className="p-6 text-white"> 
+
+            <h3 className="text-2xl font-bold mb-2">
+              {item.title}
+            </h3>
+
+            <p className="text-white/90 text-sm">
+              Advanced treatment with experienced specialists and modern
+              technology.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div className="p-6">
+
+          <h3
+            className="text-xl font-bold"
+            style={{ color: BRAND }}
+          >
+            {item.title}
+          </h3>
+
+          <p className="text-gray-500 mt-3 leading-7">
+
+            Expert care with advanced surgical techniques for better recovery
+            and improved patient outcomes.
+
+          </p>
+
+          
+        </div>
+
+        {/* Shine */}
+
+        <div className="absolute -left-40 top-0 h-full w-20 bg-white/30 rotate-12 blur-lg group-hover:left-[120%] transition-all duration-[1200ms]" />
+
+      </div>
+
+    ))}
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           {/* Bottom CTA Banner */}
           <div

@@ -33,6 +33,54 @@ function useReveal() {
   return [ref, visible];
 }
 
+/* ── Count-up hook ──
+   Animates a number from 0 to `end` over `duration` ms,
+   but only once `start` becomes true (e.g. when the element
+   scrolls into view via useReveal). */
+function useCountUp(end, duration = 1500, start = false) {
+  const [count, setCount] = useState(0);
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    if (!start || hasRun.current) return;
+    hasRun.current = true;
+
+    let rafId;
+    let startTime = null;
+
+    const step = (timestamp) => {
+      if (startTime === null) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // easeOutQuad for a natural deceleration
+      const eased = 1 - (1 - progress) * (1 - progress);
+      setCount(Math.floor(eased * end));
+
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        setCount(end);
+      }
+    };
+
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, [start, end, duration]);
+
+  return count;
+}
+
+/* ── Small component wrapper so it reads nicely in JSX ── */
+function CountUp({ end, duration = 1500, start = false, suffix = "", prefix = "" }) {
+  const count = useCountUp(end, duration, start);
+  return (
+    <>
+      {prefix}
+      {count.toLocaleString()}
+      {suffix}
+    </>
+  );
+}
+
 const VALUES = [
   {
     icon: <FaHospitalUser />,
@@ -314,7 +362,9 @@ export default function About() {
 
     {/* Experience Card */}
     <div className="absolute bottom-4 right-4 lg:-bottom-6 lg:-right-6 bg-[#8b1e72] text-white rounded-xl lg:rounded-2xl px-5 py-4 lg:px-8 lg:py-6 shadow-xl">
-      <h3 className="text-2xl lg:text-4xl font-bold">2+</h3>
+      <h3 className="text-2xl lg:text-4xl font-bold">
+        <CountUp end={2} duration={1200} start={introVisible} suffix="+" />
+      </h3>
       <p className="text-xs lg:text-sm mt-1">Years of Excellence</p>
     </div>
   </div>
@@ -368,7 +418,7 @@ export default function About() {
     <div className="grid grid-cols-2 gap-4 mt-8">
       <div className="bg-white rounded-xl p-4 lg:p-5 shadow border border-[#f0d7e7]">
         <h3 className="text-2xl lg:text-3xl font-bold text-[#8b1e72]">
-          5000+
+          <CountUp end={5000} duration={1800} start={introVisible} suffix="+" />
         </h3>
         <p className="text-gray-600 text-sm lg:text-base mt-1">
           Happy Patients
@@ -377,7 +427,7 @@ export default function About() {
 
       <div className="bg-white rounded-xl p-4 lg:p-5 shadow border border-[#f0d7e7]">
         <h3 className="text-2xl lg:text-3xl font-bold text-[#8b1e72]">
-          24×7
+          <CountUp end={24} duration={1000} start={introVisible} suffix="×7" />
         </h3>
         <p className="text-gray-600 text-sm lg:text-base mt-1">
           Emergency Care

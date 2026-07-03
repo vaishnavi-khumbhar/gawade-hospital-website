@@ -1,0 +1,50 @@
+{
+  "tagline": "जीवन की देखभाल !",
+  "appointment": "अपॉइंटमेंट",
+  "specialities": "स्पेशलिटीज",
+  "nav_doctors": "डॉक्टर",
+  "nav_about": "हमारे बारे में",
+  "nav_contact": "संपर्क करें",
+
+  "bookNow": "अपॉइंटमेंट बुक करें",
+  "mobile_bookAppointment": "अपॉइंटमेंट बुक करें",
+
+  "topbar_emergencyService": "24x7 आपातकालीन सेवा",
+  "topbar_address": "बारामती, महाराष्ट्र",
+
+  "cta_cantFind": "आपको जो चाहिए वह नहीं मिल रहा?",
+  "cta_viewAll": "सभी स्पेशलिटीज देखें",
+
+  "mobile_emergency": "आपातकालीन",
+  "mobile_call": "कॉल करें",
+  "mobile_findDoctor": "डॉक्टर खोजें",
+  "mobile_book": "बुक करें",
+
+  "spec_heading_ortho": "ऑर्थोपेडिक और सर्जिकल केयर",
+  "spec_ortho_1": "ऑर्थोपेडिक और ट्रॉमा केयर",
+  "spec_ortho_2": "घुटना प्रत्यारोपण सर्जरी",
+  "spec_ortho_3": "हिप प्रत्यारोपण सर्जरी",
+  "spec_ortho_4": "फ्रैक्चर प्रबंधन",
+  "spec_ortho_5": "जोड़ पुनर्निर्माण प्रक्रिया",
+  "spec_ortho_6": "खेल चोट प्रबंधन",
+
+  "spec_heading_neuro": "न्यूरो और स्पाइन केयर",
+  "spec_neuro_1": "मस्तिष्क और न्यूरोसर्जरी",
+  "spec_neuro_2": "रीढ़ की सर्जरी",
+  "spec_neuro_3": "रीढ़ की चोट प्रबंधन",
+  "spec_neuro_4": "न्यूनतम चीरा स्पाइन प्रक्रियाएं",
+  "spec_neuro_5": "प्लास्टिक और पुनर्निर्माण सर्जरी",
+
+  "spec_heading_critical": "क्रिटिकल और इमरजेंसी केयर",
+  "spec_critical_1": "इमरजेंसी और ट्रॉमा केयर",
+  "spec_critical_2": "आईसीयू और क्रिटिकल केयर यूनिट",
+  "spec_critical_3": "दुर्घटना और ट्रॉमा प्रबंधन",
+  "spec_critical_4": "एम्बुलेंस सहायता",
+  "spec_critical_5": "24x7 इमरजेंसी सहायता",
+
+  "spec_heading_diagnostics": "निदान और पुनर्वास",
+  "spec_diag_1": "सीटी स्कैन और निदान सेवाएं",
+  "spec_diag_2": "फिजियोथेरेपी और पुनर्वास",
+  "spec_diag_3": "कैशलेस बीमा सुविधा",
+  "spec_diag_4": "आधुनिक निदान सहायता"
+}

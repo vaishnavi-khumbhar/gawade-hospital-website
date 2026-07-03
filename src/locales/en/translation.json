@@ -1,0 +1,50 @@
+{
+  "tagline": "Caring For Life !",
+  "appointment": "Appointment",
+  "specialities": "Specialities",
+  "nav_doctors": "Doctors",
+  "nav_about": "About Us",
+  "nav_contact": "Contact Us",
+
+  "bookNow": "Book Appointment",
+  "mobile_bookAppointment": "Book an Appointment",
+
+  "topbar_emergencyService": "24x7 Emergency Service",
+  "topbar_address": "Baramati, Maharashtra",
+
+  "cta_cantFind": "Can't find what you're looking for?",
+  "cta_viewAll": "View All Specialities",
+
+  "mobile_emergency": "Emergency",
+  "mobile_call": "Call",
+  "mobile_findDoctor": "Find Doctor",
+  "mobile_book": "Book",
+
+  "spec_heading_ortho": "Orthopedic & Surgical Care",
+  "spec_ortho_1": "Orthopedic & Trauma Care",
+  "spec_ortho_2": "Knee Replacement Surgery",
+  "spec_ortho_3": "Hip Replacement Surgery",
+  "spec_ortho_4": "Fracture Management",
+  "spec_ortho_5": "Joint Reconstruction Procedures",
+  "spec_ortho_6": "Sports Injury Management",
+
+  "spec_heading_neuro": "Neuro & Spine Care",
+  "spec_neuro_1": "Brain & Neurosurgery",
+  "spec_neuro_2": "Spine Surgery",
+  "spec_neuro_3": "Spinal Trauma Management",
+  "spec_neuro_4": "Minimally Invasive Spine Procedures",
+  "spec_neuro_5": "Plastic & Reconstructive Surgery",
+
+  "spec_heading_critical": "Critical & Emergency Care",
+  "spec_critical_1": "Emergency & Trauma Care",
+  "spec_critical_2": "ICU & Critical Care Unit",
+  "spec_critical_3": "Accident & Trauma Management",
+  "spec_critical_4": "Ambulance Assistance",
+  "spec_critical_5": "24x7 Emergency Support",
+
+  "spec_heading_diagnostics": "Diagnostics & Rehabilitation",
+  "spec_diag_1": "CT Scan & Diagnostic Services",
+  "spec_diag_2": "Physiotherapy & Rehabilitation",
+  "spec_diag_3": "Cashless Insurance Facility",
+  "spec_diag_4": "Modern Diagnostic Support"
+}

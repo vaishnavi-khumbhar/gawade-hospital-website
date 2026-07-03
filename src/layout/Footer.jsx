@@ -21,10 +21,11 @@ const BRAND_SOFT = "#f3e3ee";
 
 const locations = [
   {
-    name: "Baramati",
-    address: "Near XX Road, Baramati, Maharashtra 413102",
-    phone: "+91 XXXXX XXXXX",
+    name: "Gawade Hospital",
+    address: "Gunwadi Road, Baramati, Maharashtra - 413102",
+    phone: "+917420932217",
     email: "info@gawadehospital.com",
+    mapLink: "https://www.google.com/maps?q=Gawade+Hospital+Baramati",
   },
 ];
 
@@ -97,7 +98,7 @@ export default function Footer() {
               />
 
               <span
-                className="text-3xl font-bold"
+                className="text-3xl font-bold "
                 style={{ color: BRAND }}
               >
                 Gawade Hospital
@@ -136,7 +137,7 @@ export default function Footer() {
                   className="text-lg font-semibold"
                   style={{ color: BRAND }}
                 >
-                  +91 XXXXX XXXXX
+                  +91 9876543210
                 </p>
 
               </div>
@@ -164,7 +165,7 @@ export default function Footer() {
                   className="text-lg font-semibold"
                   style={{ color: BRAND }}
                 >
-                  +91 XXXXX XXXXX
+                  +91 7420932217
                 </p>
 
               </div>
@@ -251,6 +252,7 @@ export default function Footer() {
     border
     bg-white
     p-6
+    8b1e72
     shadow-md
   "
   style={{ borderColor: BRAND_SOFT }}
@@ -258,9 +260,9 @@ export default function Footer() {
                 <div className="mb-3 flex items-center gap-2">
                   <MapPin size={18} style={{ color: BRAND }} />
 
-                  <span className="text-lg font-semibold text-gray-800">
-                    {loc.name}
-                  </span>
+                  <span className="text-lg font-semibold text-[#8b1e72]">
+  {loc.name}
+</span>
                 </div>
 
                 <p className="mb-4 text-base leading-7 text-gray-600">
@@ -278,23 +280,41 @@ export default function Footer() {
                 </p>
 
                 <div className="flex flex-wrap gap-3">
-                  <button
-                    className="flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold"
-                    style={{
-                      borderColor: BRAND,
-                      color: BRAND,
-                    }}
-                  >
-                    Get Directions
-                    <ArrowRight size={15} />
-                  </button>
+                 <a
+  href={loc.mapLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition-all duration-300"
+  style={{
+    borderColor: BRAND,
+    color: BRAND,
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.backgroundColor = BRAND;
+    e.currentTarget.style.color = "#fff";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.backgroundColor = "transparent";
+    e.currentTarget.style.color = BRAND;
+  }}
+>
+  <span>Get Directions</span>
+  <ArrowRight size={15} />
+</a>
 
-                  <button
-                    style={{ backgroundColor: BRAND }}
-                    className="rounded-lg px-4 py-2 text-sm font-semibold text-white"
-                  >
-                    Call Now
-                  </button>
+                 <a
+  href="tel:+917420932217"
+  className="rounded-lg px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90 hover:scale-105"
+  style={{ backgroundColor: BRAND }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.backgroundColor = "#74185f";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.backgroundColor = BRAND;
+  }}
+>
+  Call Now
+</a>
                 </div>
               </div>
             ))}

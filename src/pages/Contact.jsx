@@ -374,7 +374,7 @@ useEffect(() => {
                 Book Appointment
               </button>
             </Link>
-            <a href="tel:+91-XXXXXXXXXX" className="flex-1">
+            <a href="tel:+91-7420932217" className="flex-1">
               <button
                 className="w-full bg-transparent border border-white text-white font-semibold py-3 rounded-md text-xs"
                 style={{ fontFamily: "Signika, sans-serif" }}
@@ -448,7 +448,7 @@ useEffect(() => {
             Book Appointment
           </button>
         </Link>
-        <a href="tel:+91-XXXXXXXXXX">
+        <a href="tel:+91-7420932217">
           <button className="bg-transparent border border-white text-white font-semibold px-6 py-3 rounded-md transition-colors hover:bg-white/10">
             Call Emergency
           </button>
@@ -660,8 +660,8 @@ useEffect(() => {
         >
           Fill in the form below and a member of our team will contact you within
           24–48 hours. For medical emergencies call{" "}
-          <a href="tel:+91-XXXXXXXXXX" className="font-semibold hover:underline" style={{ color: BRAND }}>
-            +91-XXXXXXXXXX
+          <a href="tel:+91-7420932217" className="font-semibold hover:underline" style={{ color: BRAND }}>
+            +91-7420932217
           </a>.
         </p>
 
@@ -864,23 +864,21 @@ useEffect(() => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <InfoCard icon={<FaMapMarkerAlt />} title="Address">
-                Gawade Hospital, Baramati, Maharashtra, India
+               Gunwadi Road, Baramati, Maharashtra - 413102
               </InfoCard>
               <InfoCard icon={<FaEnvelope />} title="Email ID">
                 info@gawadehospital.com
               </InfoCard>
               <InfoCard icon={<FaPhoneAlt />} title="Gawade Hospital">
-                +91-XXXXXXXXXX
+                +91-7420932217
               </InfoCard>
               <InfoCard icon={<FaBell />} title="Emergency Number">
-                +91-XXXXXXXXXX
+                +91-9876543210
               </InfoCard>
               <InfoCard icon={<FaQuestionCircle />} title="Enquiry">
-                +91-XXXXXXXXXX
+                +91-9860017620
               </InfoCard>
-              <InfoCard icon={<FaUserTie />} title="Operator">
-                +91-XXXXXXXXXX
-              </InfoCard>
+              
             </div>
           </div>
 
