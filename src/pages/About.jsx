@@ -552,7 +552,7 @@ export default function About() {
   </a>
 
   <a
-    href="tel:+91xxxxxxxxxx"
+    href="tel:+917420932217"
     className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-lg text-sm border border-white text-white hover:bg-white/10 transition-colors"
   >
     <FaUserMd />
