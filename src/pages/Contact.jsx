@@ -84,7 +84,7 @@ function SearchableDropdown({ label, options, value, onChange, getLabel }) {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white text-left flex items-center justify-between focus:outline-none focus:ring-2"
+        className="w-full px-4 py-3 rounded-md border border-gray-300 bg-white text-left flex items-center justify-between focus:outline-none focus:ring-2 text-sm"
         style={{ "--tw-ring-color": BRAND }}
       >
         <span className={selectedLabel ? "text-gray-700" : "text-gray-400"}>
@@ -193,12 +193,15 @@ function InfoCard({ icon, title, children }) {
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-[13px] sm:text-[14px] font-bold" style={{ color: BRAND }}>
-          {title}
-        </p>
-        <div className="text-gray-600 text-[13px] sm:text-[14px] leading-6 break-words">
-          {children}
-        </div>
+       <p
+  className="text-lg sm:text-xl lg:text-1xl font-bold"
+  style={{ color: BRAND }}
+>
+  {title}
+</p>
+      <div className="text-gray-700 text-[17px] sm:text-[18px] lg:text-[19px] leading-8 break-words font-medium">
+  {children}
+</div>
       </div>
     </div>
   );
@@ -694,8 +697,8 @@ useEffect(() => {
               {/* Row 1 — Name / Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-[13px] font-semibold text-gray-600 mb-1.5">
-                    Name <span style={{ color: "#e30613" }}>*</span>
+<label className="block text-[16px] font-semibold text-gray-600 mb-1.5">
+                      Name <span style={{ color: "#e30613" }}>*</span>
                   </label>
                   <input
                     type="text"
@@ -707,7 +710,7 @@ useEffect(() => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[13px] font-semibold text-gray-600 mb-1.5">
+                  <label className="block text-[16px] font-semibold text-gray-600 mb-1.5">
                     Phone <span style={{ color: "#e30613" }}>*</span>
                   </label>
                   <input
@@ -724,7 +727,7 @@ useEffect(() => {
               {/* Row 2 — Email / Location */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-[13px] font-semibold text-gray-600 mb-1.5">
+                  <label className="block text-[16px] font-semibold text-gray-600 mb-1.5">
                     Email
                   </label>
                   <input
@@ -737,7 +740,7 @@ useEffect(() => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[13px] font-semibold text-gray-600 mb-1.5">
+                  <label className="block text-[16px] font-semibold text-gray-600 mb-1.5">
                     Location
                   </label>
                   <select
@@ -758,7 +761,7 @@ useEffect(() => {
 
               {/* Row 3 — Message */}
               <div className="mb-4">
-                <label className="block text-[13px] font-semibold text-gray-600 mb-1.5">
+                <label className="block text-[16px] font-semibold text-gray-600 mb-1.5">
                   Message
                 </label>
                 <textarea
@@ -842,7 +845,7 @@ useEffect(() => {
             className="text-2xl sm:text-4xl font-extrabold mb-6 sm:mb-8"
             style={{ color: BRAND, fontFamily: "Signika, sans-serif" }}
           >
-            Reach Us At
+            Reach Us At..
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -862,8 +865,8 @@ useEffect(() => {
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <InfoCard icon={<FaMapMarkerAlt />} title="Address">
+<div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
+                  <InfoCard icon={<FaMapMarkerAlt />} title="Address">
                Gunwadi Road, Baramati, Maharashtra - 413102
               </InfoCard>
               <InfoCard icon={<FaEnvelope />} title="Email ID">
@@ -900,7 +903,7 @@ useEffect(() => {
               <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold">
                 24×7 Emergency & Appointment Support
               </h3>
-              <p className="text-white/70 mt-1 text-sm">
+<p className="text-white/70 mt-1 text-base sm:text-lg">
                 Our specialists are available round the clock for emergencies and consultations.
               </p>
             </div>
@@ -915,7 +918,7 @@ useEffect(() => {
   </Link>
 
   <a
-    href="tel:+91-XXXXXXXXXX"
+    href="tel:+91-987654321"
     className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-lg text-sm border border-white text-white hover:bg-white/10 transition-colors"
   >
     <FaUserMd />

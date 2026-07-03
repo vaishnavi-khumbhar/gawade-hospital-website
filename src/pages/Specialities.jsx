@@ -663,7 +663,7 @@ const [heroRef, heroVisible] = useReveal();
               <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold">
                 24×7 Emergency & Appointment Support
               </h3>
-              <p className="text-white/70 mt-1 text-sm">
+<p className="text-white/70 mt-1 text-base sm:text-lg">
                 Our specialists are available round the clock for emergencies and consultations.
               </p>
             </div>
