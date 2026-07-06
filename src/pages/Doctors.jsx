@@ -296,7 +296,7 @@ useEffect(() => {
           </p>
 
           <div className="flex gap-2">
-            <a href="/appointment" className="flex-1">
+<Link to="/appointment" className="flex-1">
               <button
                 className="w-full inline-flex items-center justify-center gap-1.5 text-white font-semibold py-3 rounded-md shadow text-xs"
                 style={{ backgroundColor: "#e30613" }}
@@ -304,13 +304,14 @@ useEffect(() => {
                 <MdMedicalServices className="text-base" />
                 Book Appointment
               </button>
-            </a>
-            <a href="/specialities" className="flex-1">
+            </Link>
+
+<Link to="/specialities" className="flex-1">
               <button className="w-full inline-flex items-center justify-center gap-1.5 border border-white text-white font-semibold py-3 rounded-md text-xs">
                 <FaUserMd className="text-base" />
                 Our Specialities
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -369,21 +370,21 @@ useEffect(() => {
             </p>
 
             <div className="flex gap-4 flex-wrap">
-              <a
-                href="/appointment"
+             <Link
+  to="/appointment"
                 className="inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all duration-300 hover:scale-105"
                 style={{ backgroundColor: "#e30613" }}
               >
                 <MdMedicalServices className="text-lg" />
                 Book Appointment
-              </a>
-              <a
-                href="/specialities"
+              </Link>
+              <Link
+  to="/specialities"
                 className="inline-flex items-center gap-2 border border-white text-white hover:bg-white hover:text-[#8b1e72] font-semibold px-6 py-3 rounded-xl transition-all duration-300"
               >
                 <FaUserMd className="text-lg" />
                 Our Specialities
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -514,14 +515,14 @@ export default function DoctorsSection() {
               </p>
             </div>
             <div className="relative flex gap-3 flex-shrink-0 flex-wrap justify-center">
-              <a
-                href="/appointment"
+              <Link
+  to="/appointment"
                 className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-lg text-sm transition-transform hover:scale-[1.04]"
                 style={{ backgroundColor: "#e30613", color: "#fff" }}
               >
                 <MdMedicalServices />
                 Book Appointment
-              </a>
+              </Link>
               <a
                 href="tel:+91xxxxxxxxxx"
                 className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-lg text-sm border border-white text-white hover:bg-white/10 transition-colors"

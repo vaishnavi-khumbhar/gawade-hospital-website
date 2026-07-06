@@ -335,38 +335,37 @@ const changeLanguage = (lang) => {
 
             {/* Social Icons */}
 
-             <a 
-              href="/"
-              title="Facebook"
-              className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
-            >
-              <FaFacebookF className="text-sm" />
-            </a>
- <a 
-            
-              href="/"
-              title="Instagram"
-              className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
-            >
-              <FaInstagram className="text-sm" />
-            </a>
+            <Link
+  to="/"
+  title="Facebook"
+  className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+>
+  <FaFacebookF className="text-sm" />
+</Link>
 
-             <a 
-              href="/"
-              title="LinkedIn"
-              className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
-            >
-              <FaLinkedinIn className="text-sm" />
-            </a>
- <a 
-            
-              href="/"
-              title="YouTube"
-              className="w-9 h-9 rounded-full bg-red-600 text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
-            >
-              <FaYoutube className="text-sm" />
-            </a>
+<Link
+  to="/"
+  title="Instagram"
+  className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+>
+  <FaInstagram className="text-sm" />
+</Link>
 
+<Link
+  to="/"
+  title="LinkedIn"
+  className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+>
+  <FaLinkedinIn className="text-sm" />
+</Link>
+
+<Link
+  to="/"
+  title="YouTube"
+  className="w-9 h-9 rounded-full bg-red-600 text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+>
+  <FaYoutube className="text-sm" />
+</Link>
           </div>
 
         </div>
