@@ -480,9 +480,13 @@ useEffect(() => {
         className="max-w-6xl mx-auto px-4 sm:px-10 py-4 flex items-center gap-2 text-sm sm:text-lg"
         style={{ fontFamily: "Signika, sans-serif" }}
       >
-        <a href="/" style={{ color: BRAND }} className="font-medium hover:underline">
-          Home
-        </a>
+       <Link
+  to="/"
+  style={{ color: BRAND }}
+  className="font-medium hover:underline"
+>
+  Home
+</Link>
         <span className="text-gray-400">/</span>
         <span style={{ color: BRAND }} className="font-semibold">
           Contact Us

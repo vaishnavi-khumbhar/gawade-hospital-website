@@ -25,7 +25,7 @@ import {
 import { RiMentalHealthFill } from "react-icons/ri";
 import { TbPhysotherapist } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import SpecilitiesImg from "../assets/Specilities.jpg";
 import Specilities1Img from "../assets/Specilities1.jpg";
 import Specilities2Img from "../assets/Specilities2.jpg";
@@ -462,13 +462,13 @@ const [heroRef, heroVisible] = useReveal();
         ═══════════════════════════════════════════ */}
         <div className="max-w-6xl mx-auto px-4 sm:px-10 py-4 flex items-center gap-2 text-sm sm:text-lg">
           
-           <a
-  href="/"
+        <Link
+  to="/"
   style={{ color: BRAND }}
   className="font-medium hover:underline"
 >
   Home
-</a>
+</Link>
 
           <span className="text-gray-400">/</span>
 

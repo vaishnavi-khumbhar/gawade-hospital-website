@@ -9,7 +9,7 @@ import {
   FaHospitalUser,
 } from "react-icons/fa";
 import AboutImg from "../assets/about.png";
-
+import { Link } from "react-router-dom";
 
 
 const BRAND = "#8b1e72";
@@ -307,9 +307,13 @@ export default function About() {
 
         {/* Breadcrumb */}
         <div className="max-w-6xl mx-auto px-4 sm:px-10 py-4 flex items-center gap-2 text-sm sm:text-base">
-          <a href="/" style={{ color: BRAND }} className="font-medium hover:underline">
-            Home
-          </a>
+         <Link
+  to="/"
+  style={{ color: BRAND }}
+  className="font-medium hover:underline"
+>
+  Home
+</Link>
           <span className="text-gray-400">/</span>
           <span style={{ color: BRAND }} className="font-semibold">
             About Us

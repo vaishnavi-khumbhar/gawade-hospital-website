@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { MdMedicalServices } from "react-icons/md";
 import { FaUserMd, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import DoctorsImg from "../assets/docters.jpg";
 import Doctors1Img from "../assets/docters1.jpg";
 import Doctors2Img from "../assets/docter2.jpg";
@@ -409,9 +409,16 @@ export default function DoctorsSection() {
 
          {/* Breadcrumb */}
       <div className="max-w-6xl mx-auto px-4 sm:px-10 py-4 flex items-center gap-2 text-sm sm:text-base">
-        <a href="/" style={{ color: BRAND }} className="font-medium hover:underline">
-          Home
-        </a>
+
+        <Link
+  to="/"
+  style={{ color: BRAND }}
+  className="font-medium hover:underline"
+>
+  Home
+</Link>
+
+
         <span className="text-gray-400">/</span>
         <span style={{ color: BRAND }} className="font-semibold">
           Our Doctors
