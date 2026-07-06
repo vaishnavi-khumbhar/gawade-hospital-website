@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 import logo from "../assets/logo.png";
-
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -30,38 +30,36 @@ const locations = [
 ];
 
 const superSpecialities = [
-  "Orthopedic & Trauma Care",
-  "Brain & Neurosurgery",
-  "Spine Surgery",
-  "Plastic & Reconstructive Surgery",
-  "Critical Care Services",
+  { name: "Orthopedic & Trauma Care", link: "/specialities" },
+  { name: "Brain & Neurosurgery", link: "/specialities" },
+  { name: "Spine Surgery", link: "/specialities" },
+  { name: "Plastic & Reconstructive Surgery", link: "/specialities" },
+  { name: "Critical Care Services", link: "/specialities" },
 ];
 
 const broadSpecialities = [
-  "Knee Replacement Surgery",
-  "Hip Replacement Surgery",
-  "Joint Reconstruction",
-  "Physiotherapy & Rehabilitation",
-  "CT Scan & Diagnostics",
-];
-
-const quickLinks = [
-  "About Us",
-  "Why Choose Us",
-  "Our Doctors",
-  "Facilities",
-  "Gallery",
-  "Health Blogs",
+  { name: "Knee Replacement Surgery", link: "/specialities" },
+  { name: "Hip Replacement Surgery", link: "/specialities" },
+  { name: "Joint Reconstruction", link: "/specialities" },
+  { name: "Physiotherapy & Rehabilitation", link: "/specialities" },
+  { name: "CT Scan & Diagnostics", link: "/specialities" },
 ];
 
 const auxiliaryServices = [
-  "Cashless Insurance Facility",
-  "Emergency & Trauma Care",
-  "ICU & Critical Care",
-  "Patient Testimonials",
-  "FAQs",
+  { name: "Cashless Insurance Facility", link: "/specialities" },
+  { name: "Emergency & Trauma Care", link: "/specialities" },
+  { name: "ICU & Critical Care", link: "/specialities" },
+  { name: "Patient Testimonials", link: "/specialities" },
+  { name: "FAQs", link: "/specialities" },
 ];
 
+const quickLinks = [
+  { name: "Book An Appointment", link: "/appointment" },
+  { name: "Specialities", link: "/specialities" },
+  { name: "Doctors", link: "/doctors" },
+  { name: "About Us", link: "/about" },
+  { name: "Contact Us", link: "/contact" },
+];
 export default function Footer() {
   return (
     <footer
@@ -388,27 +386,24 @@ function FooterColumn({ title, items }) {
         {title}
       </h4>
 
-      <ul className="space-y-3">
-
-        {items.map((item) => (
-          <li key={item}>
-            <a
-              href="#"
-              className="text-base text-gray-600 transition-all duration-300 hover:underline"
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = BRAND)
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "")
-              }
-            >
-              {item}
-            </a>
-          </li>
-        ))}
-
-      </ul>
-
+     <ul className="space-y-3">
+  {items.map((item) => (
+    <li key={typeof item === "string" ? item : item.name}>
+      <Link
+        to={typeof item === "string" ? "#" : item.link}
+        className="text-base text-gray-600 transition-all duration-300 hover:underline"
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.color = BRAND)
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.color = "")
+        }
+      >
+        {typeof item === "string" ? item : item.name}
+      </Link>
+    </li>
+  ))}
+</ul>
     </div>
   );
 }

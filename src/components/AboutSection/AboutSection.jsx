@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import {
   ShieldCheck,
@@ -10,6 +11,48 @@ import {
 
 const AboutSection = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  // Cards now reference translation keys instead of hardcoded text,
+  // so the grid switches language automatically along with the rest
+  // of the site.
+  const cards = [
+    {
+      no: "01",
+      titleKey: "aboutCard1Title",
+      descKey: "aboutCard1Desc",
+      btnKey: "aboutCard1Btn",
+      link: "/services",
+    },
+    {
+      no: "02",
+      titleKey: "aboutCard2Title",
+      descKey: "aboutCard2Desc",
+      btnKey: "aboutCard2Btn",
+      link: "/joint-replacement",
+    },
+    {
+      no: "03",
+      titleKey: "aboutCard3Title",
+      descKey: "aboutCard3Desc",
+      btnKey: "aboutCard3Btn",
+      link: "/doctors",
+    },
+    {
+      no: "04",
+      titleKey: "aboutCard4Title",
+      descKey: "aboutCard4Desc",
+      btnKey: "aboutCard4Btn",
+      link: "/facilities",
+    },
+    {
+      no: "05",
+      titleKey: "aboutCard5Title",
+      descKey: "aboutCard5Desc",
+      btnKey: "aboutCard5Btn",
+      link: "/insurance",
+    },
+  ];
 
   return (
     <>
@@ -19,43 +62,7 @@ const AboutSection = () => {
 
     <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-5">
 
-      {[
-        {
-          no: "01",
-          title: "Orthopedic Care",
-          desc: "Advanced orthopedic & trauma treatment",
-          btn: "View Services",
-          link: "/services",
-        },
-        {
-          no: "02",
-          title: "Joint Replacement",
-          desc: "Knee & hip replacement surgery",
-          btn: "View Details",
-          link: "/joint-replacement",
-        },
-        {
-          no: "03",
-          title: "Specialist Doctors",
-          desc: "Experienced medical experts",
-          btn: "View Doctors",
-          link: "/doctors",
-        },
-        {
-          no: "04",
-          title: "CT Scan",
-          desc: "Modern imaging & diagnostics",
-          btn: "View Facility",
-          link: "/facilities",
-        },
-        {
-          no: "05",
-          title: "Insurance",
-          desc: "Cashless treatment support",
-          btn: "View Details",
-          link: "/insurance",
-        },
-      ].map((item) => (
+      {cards.map((item) => (
         <div
           key={item.no}
           className="
@@ -88,11 +95,11 @@ const AboutSection = () => {
 <div className="relative z-10 flex flex-col justify-between h-full">
             <div>
               <h3 className="text-[15px] sm:text-[17px] font-semibold text-[#8b1e72] leading-tight">
-                {item.title}
+                {t(item.titleKey)}
               </h3>
 
               <p className="mt-1 text-[15px] sm:text-[17px] text-gray-600 leading-4 sm:leading-6">
-                {item.desc}
+                {t(item.descKey)}
               </p>
             </div>
 
@@ -118,7 +125,7 @@ const AboutSection = () => {
                 duration-300
                 "
               >
-                {item.btn}
+                {t(item.btnKey)}
               </button>
             </div>
 
@@ -158,11 +165,11 @@ const AboutSection = () => {
 
           <div>
             <h3 className="text-[15px] sm:text-[17px] font-semibold text-red-500 leading-tight">
-              Emergency Care
+              {t("aboutEmergencyTitle")}
             </h3>
 
             <p className="mt-1 text-[15px] sm:text-[17px] text-gray-600 leading-4 sm:leading-6">
-              24×7 Emergency Care
+              {t("aboutEmergencyDesc")}
             </p>
           </div>
 
@@ -191,7 +198,7 @@ const AboutSection = () => {
               duration-300
               "
             >
-              Emergency Call
+              {t("aboutEmergencyBtn")}
             </a>
           </div>
 
@@ -221,21 +228,18 @@ const AboutSection = () => {
         <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
           <div className="w-10 h-[2px] bg-[#c9a227]" />
           <span className="uppercase tracking-[2px] text-[13px] sm:text-[17px] sm:text-xs font-semibold text-[#8b1e72]">
-            About Gawade Hospital
+            {t("aboutIntroLabel")}
           </span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#8b1e72] leading-tight">
-          Excellence in Healthcare,
+          {t("aboutHeadingLine1")}
           <br />
-          Compassion in Service
+          {t("aboutHeadingLine2")}
         </h2>
 
        <p className="mt-5 text-gray-600 text-[16px] sm:text-[16px] md:text-[18px] lg:text-[18px] leading-8 max-w-3xl mx-auto lg:mx-0">
-  Gawade Hospital is a trusted multispeciality healthcare destination
-  in Baramati, providing advanced Orthopedic, Trauma, Joint
-  Replacement, Neurosurgery, Spine Care and Emergency Services with
-  modern technology and patient-focused treatment.
+  {t("aboutIntroParagraph")}
 </p>
 
         <button
@@ -263,7 +267,7 @@ const AboutSection = () => {
     duration-300
   "
         >
-          Know More
+          {t("aboutKnowMoreBtn")}
         </button>
 
       </div>
@@ -278,10 +282,10 @@ const AboutSection = () => {
 
           <div>
 <h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
-                Patient First
+                {t("aboutFeature1Title")}
             </h4>
           <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
-              Personalized and compassionate care.
+              {t("aboutFeature1Desc")}
             </p>
           </div>
         </div>
@@ -293,10 +297,10 @@ const AboutSection = () => {
 
           <div>
 <h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
-                Medical Excellence
+                {t("aboutFeature2Title")}
             </h4>
           <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
-  Advanced treatments & expert doctors.
+  {t("aboutFeature2Desc")}
 </p>
           </div>
         </div>
@@ -308,10 +312,10 @@ const AboutSection = () => {
 
           <div>
 <h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
-                Compassionate Care
+                {t("aboutFeature3Title")}
             </h4>
           <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
-              Respect, dignity and empathy.
+              {t("aboutFeature3Desc")}
             </p>
           </div>
         </div>
@@ -323,10 +327,10 @@ const AboutSection = () => {
 
           <div>
 <h4 className="text-[18px] sm:text-[20px] font-semibold text-[#8b1e72]">
-                Trusted Care
+                {t("aboutFeature4Title")}
             </h4>
           <p className="text-[18px] sm:text-[16px] text-gray-600 mt-2 leading-6">
-              Reliable healthcare for every family.
+              {t("aboutFeature4Desc")}
             </p>
           </div>
         </div>
@@ -368,16 +372,16 @@ const AboutSection = () => {
 
            <div className="w-10 h-[2px] bg-[#c9a227]" />
           <span className="uppercase tracking-[2px] text-[13px] sm:text-[17px] sm:text-xs font-semibold text-[#8b1e72]">
-            Specialist Consultation
+            {t("aboutConsultLabel")}
           </span>
         </div>
 
           <h2 className="text-3xl sm:text-5xl lg:text-5xl font-bold text-[#8b1e72] leading-tight">
-            Book Care With The Right Specialist
+            {t("aboutConsultHeading")}
           </h2>
 
 <p className="mt-4 text-gray-600 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-3xl">
-              Advanced Orthopedic, Trauma, Spine, Brain Surgery and Critical Care services delivered with expertise and compassion.
+              {t("aboutConsultParagraph")}
           </p>
 
         </div>
@@ -402,7 +406,7 @@ const AboutSection = () => {
 
               <input
                 type="text"
-                placeholder="Search Doctor Name"
+                placeholder={t("aboutConsultSearchPlaceholder")}
                 className="
                 h-12
                 rounded-xl
@@ -415,18 +419,18 @@ const AboutSection = () => {
               />
 
               <select className="h-12 rounded-xl border border-[#8b1e72]/15 px-4">
-                <option>All Specialities</option>
-                <option>Orthopedic</option>
-                <option>Joint Replacement</option>
-                <option>Brain Surgery</option>
-                <option>Spine Surgery</option>
+                <option>{t("aboutConsultAllSpecialities")}</option>
+                <option>{t("aboutConsultSpecOrtho")}</option>
+                <option>{t("aboutConsultSpecJoint")}</option>
+                <option>{t("aboutConsultSpecBrain")}</option>
+                <option>{t("aboutConsultSpecSpine")}</option>
               </select>
 
               <select className="h-12 rounded-xl border border-[#8b1e72]/15 px-4">
-                <option>All Departments</option>
-                <option>Trauma Care</option>
-                <option>Emergency Care</option>
-                <option>Physiotherapy</option>
+                <option>{t("aboutConsultAllDepartments")}</option>
+                <option>{t("aboutConsultDeptTrauma")}</option>
+                <option>{t("aboutConsultDeptEmergency")}</option>
+                <option>{t("aboutConsultDeptPhysio")}</option>
               </select>
 
               <button
@@ -450,7 +454,7 @@ const AboutSection = () => {
                 duration-300
                 "
               >
-                Search Specialist
+                {t("aboutConsultSearchBtn")}
               </button>
 
             </div>

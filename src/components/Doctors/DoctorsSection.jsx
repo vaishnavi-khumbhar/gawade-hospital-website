@@ -8,7 +8,7 @@ const doctors = [
     description:
       "Expert in fracture management, trauma surgery, knee replacement, hip replacement, and orthopedic reconstruction procedures.",
     location: "Baramati ",
-    schedule: "Mon – Sat · 9 am – 5 pm",
+    schedule: "Mon – Sat · 10 am – 6 pm",
   },
   {
     name: "Dr. Neha Sharma",
@@ -16,7 +16,7 @@ const doctors = [
     description:
       "Specialized in brain surgery, neurological disorders, and advanced neurosurgical procedures.",
     location: "Baramati",
-    schedule: "Mon – Sat · 10 am – 5 pm",
+    schedule: "Mon – Sat · 10 am – 6 pm",
   },
   {
     name: "Dr. Rajesh Kulkarni",
@@ -24,7 +24,7 @@ const doctors = [
     description:
       "Experienced in spine surgery, spinal trauma management, and minimally invasive spine procedures.",
     location: "Baramati",
-    schedule: "Mon – Sat · 11 am – 4 pm",
+    schedule: "Mon – Sat · 10 am – 6 pm",
   },
   {
     name: "Dr. Priya Desai",
@@ -32,7 +32,7 @@ const doctors = [
     description:
       "Providing reconstructive and plastic surgery solutions with advanced surgical techniques.",
     location: "Baramati",
-    schedule: "Mon – Sat · 10 am – 5 pm",
+    schedule: "Mon – Sat · 10 am – 6 pm",
   },
   {
     name: "Dr. Suresh Patil",
@@ -40,7 +40,7 @@ const doctors = [
     description:
       "Dedicated to managing critically ill patients with advanced intensive care support.",
     location: "Baramati",
-    schedule: "Mon – Fri · 12 pm – 2 pm",
+    schedule: "Mon – Sat · 10 am – 6 pm",
   },
   {
     name: "Dr. Kavita Joshi",
@@ -48,7 +48,7 @@ const doctors = [
     description:
       "Expert in cardiac care, advanced diagnostics, and interventional cardiology procedures for all age groups.",
     location: "Baramati",
-    schedule: "Mon, Wed · 2 pm – 6 pm",
+    schedule: "Mon – Sat · 10 am – 6 pm",
   },
 ];
 
@@ -154,7 +154,7 @@ function DoctorCard({ doctor }) {
 {/* Buttons */}
 <div className="flex gap-3 mt-auto pt-2">
   <Link
-    to="/doctor-details"
+    to="/doctors"
     className="
       flex-1
       py-3
@@ -173,7 +173,7 @@ function DoctorCard({ doctor }) {
   </Link>
 
   <Link
-    to="/book-appointment"
+    to="/appointment"
     className="
       flex-1
       py-3

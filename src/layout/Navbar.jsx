@@ -37,55 +37,55 @@ import { useTranslation } from "react-i18next";
 
 const specialitiesData = [
   {
-    headingKey: "spec_heading_ortho",
+    headingKey: "navbarSpecOrthoHeading",
     items: [
-      { icon: FaBone, labelKey: "spec_ortho_1" },
-      { icon: FaWalking, labelKey: "spec_ortho_2" },
-      { icon: FaWalking, labelKey: "spec_ortho_3" },
-      { icon: FaBone, labelKey: "spec_ortho_4" },
-      { icon: FaUserMd, labelKey: "spec_ortho_5" },
-      { icon: FaHeartbeat, labelKey: "spec_ortho_6" },
+      { icon: FaBone, labelKey: "navbarSpecOrtho1" },
+      { icon: FaWalking, labelKey: "navbarSpecOrtho2" },
+      { icon: FaWalking, labelKey: "navbarSpecOrtho3" },
+      { icon: FaBone, labelKey: "navbarSpecOrtho4" },
+      { icon: FaUserMd, labelKey: "navbarSpecOrtho5" },
+      { icon: FaHeartbeat, labelKey: "navbarSpecOrtho6" },
     ],
   },
   {
-    headingKey: "spec_heading_neuro",
+    headingKey: "navbarSpecNeuroHeading",
     items: [
-      { icon: FaBrain, labelKey: "spec_neuro_1" },
-      { icon: FaProcedures, labelKey: "spec_neuro_2" },
-      { icon: FaProcedures, labelKey: "spec_neuro_3" },
-      { icon: FaUserMd, labelKey: "spec_neuro_4" },
-      { icon: FaUserMd, labelKey: "spec_neuro_5" },
+      { icon: FaBrain, labelKey: "navbarSpecNeuro1" },
+      { icon: FaProcedures, labelKey: "navbarSpecNeuro2" },
+      { icon: FaProcedures, labelKey: "navbarSpecNeuro3" },
+      { icon: FaUserMd, labelKey: "navbarSpecNeuro4" },
+      { icon: FaUserMd, labelKey: "navbarSpecNeuro5" },
     ],
   },
   {
-    headingKey: "spec_heading_critical",
+    headingKey: "navbarSpecCriticalHeading",
     items: [
-      { icon: FaAmbulance, labelKey: "spec_critical_1" },
-      { icon: FaProcedures, labelKey: "spec_critical_2" },
-      { icon: FaSyringe, labelKey: "spec_critical_3" },
-      { icon: FaAmbulance, labelKey: "spec_critical_4" },
-      { icon: FaHeartbeat, labelKey: "spec_critical_5" },
+      { icon: FaAmbulance, labelKey: "navbarSpecCritical1" },
+      { icon: FaProcedures, labelKey: "navbarSpecCritical2" },
+      { icon: FaSyringe, labelKey: "navbarSpecCritical3" },
+      { icon: FaAmbulance, labelKey: "navbarSpecCritical4" },
+      { icon: FaHeartbeat, labelKey: "navbarSpecCritical5" },
     ],
   },
   {
-    headingKey: "spec_heading_diagnostics",
+    headingKey: "navbarSpecDiagnosticsHeading",
     items: [
-      { icon: FaXRay, labelKey: "spec_diag_1" },
-      { icon: FaWheelchair, labelKey: "spec_diag_2" },
-      { icon: FaShieldAlt, labelKey: "spec_diag_3" },
-      { icon: FaUserMd, labelKey: "spec_diag_4" },
+      { icon: FaXRay, labelKey: "navbarSpecDiagnostics1" },
+      { icon: FaWheelchair, labelKey: "navbarSpecDiagnostics2" },
+      { icon: FaShieldAlt, labelKey: "navbarSpecDiagnostics3" },
+      { icon: FaUserMd, labelKey: "navbarSpecDiagnostics4" },
     ],
   },
 ];
 
 const navLinks = [
-  { labelKey: "nav_doctors", href: "/doctors" },
-  { labelKey: "nav_about", href: "/about" },
-  { labelKey: "nav_contact", href: "/contact" },
+  { labelKey: "navLinkDoctors", href: "/doctors" },
+  { labelKey: "navLinkAbout", href: "/about" },
+  { labelKey: "navLinkContact", href: "/contact" },
 ];
 
 const EMERGENCY_NUMBER = "+919876543210";
-const WHATSAPP_NUMBER = "+9860017620";
+const WHATSAPP_NUMBER = "919876543210";
 const EMAIL = "info@gawadehospital.com";
 
 const Navbar = () => {
@@ -159,7 +159,7 @@ const changeLanguage = (lang) => {
 
             <div className="flex items-center gap-1.5">
               <FaClock className="text-xs" />
-              <span className="font-semibold">{t("topbar_emergencyService")}</span>
+              <span className="font-semibold">{t("navbarEmergencyService")}</span>
             </div>
 
             <div className="flex items-center gap-1.5">
@@ -169,7 +169,7 @@ const changeLanguage = (lang) => {
 
             <div className="hidden lg:flex items-center gap-1.5">
               <FaMapMarkerAlt className="text-xs" />
-              <span className="font-semibold">{t("topbar_address")}</span>
+              <span className="font-semibold">{t("navbarAddress")}</span>
             </div>
 
           </div>
@@ -335,37 +335,38 @@ const changeLanguage = (lang) => {
 
             {/* Social Icons */}
 
-            <Link
-  to="/"
-  title="Facebook"
-  className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
->
-  <FaFacebookF className="text-sm" />
-</Link>
+             <a 
+              href="/"
+              title="Facebook"
+              className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+            >
+              <FaFacebookF className="text-sm" />
+            </a>
+ <a 
+            
+              href="/"
+              title="Instagram"
+              className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+            >
+              <FaInstagram className="text-sm" />
+            </a>
 
-<Link
-  to="/"
-  title="Instagram"
-  className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
->
-  <FaInstagram className="text-sm" />
-</Link>
+             <a 
+              href="/"
+              title="LinkedIn"
+              className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+            >
+              <FaLinkedinIn className="text-sm" />
+            </a>
+ <a 
+            
+              href="/"
+              title="YouTube"
+              className="w-9 h-9 rounded-full bg-red-600 text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
+            >
+              <FaYoutube className="text-sm" />
+            </a>
 
-<Link
-  to="/"
-  title="LinkedIn"
-  className="w-9 h-9 rounded-full bg-[#8b1e72] text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
->
-  <FaLinkedinIn className="text-sm" />
-</Link>
-
-<Link
-  to="/"
-  title="YouTube"
-  className="w-9 h-9 rounded-full bg-red-600 text-white hover:opacity-80 duration-300 flex items-center justify-center hidden lg:flex"
->
-  <FaYoutube className="text-sm" />
-</Link>
           </div>
 
         </div>
@@ -394,7 +395,7 @@ const changeLanguage = (lang) => {
             whitespace-nowrap
           "
           >
-            {t("bookNow")}
+            {t("navbarBookNow")}
           </Link>
 
           {/* Premium Language Dropdown */}
@@ -500,19 +501,19 @@ changeLanguage("en");
                     className="text-[9px] sm:text-[10px] md:text-[11px] tracking-[1px] uppercase text-[#b04a95]"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    {t("tagline")}
+                    {t("navbarTagline")}
                   </p>
 
-                 <h2
-  className="text-xl sm:text-3xl md:text-3xl leading-none"
-  style={{
-    fontFamily: "Signika, sans-serif",
-    fontWeight: 800,
-    color: "#8b1e72",
-  }}
->
-  Gawade Hospital
-</h2>
+                  <h2
+                    className="text-xl sm:text-2xl md:text-3xl leading-none"
+                    style={{
+                      fontFamily: "Oswald, sans-serif",
+                      fontWeight: 600,
+                      color: "#8b1e72",
+                    }}
+                  >
+                    Gawade Hospital
+                  </h2>
                 </div>
 
               </div>
@@ -535,7 +536,7 @@ changeLanguage("en");
   to="/appointment"
   className="text-base hover:text-[#5e1550]  duration-300"
 >
-  {t("appointment")}
+  {t("navbarAppointment")}
 </Link>
               </li>
 
@@ -553,7 +554,7 @@ changeLanguage("en");
   to="/specialities"
   className="flex items-center gap-1.5 text-base hover:text-[#5e1550] duration-300 cursor-pointer"
 >
-  {t("specialities")}
+  {t("navbarSpecialities")}
   <FaChevronDown
     className={`text-[10px] duration-300 ${
       showSpecialities ? "rotate-180" : ""
@@ -655,14 +656,14 @@ changeLanguage("en");
                       {/* Footer CTA strip */}
                       <div className="mt-5 pt-4 border-t border-[#f3e6ef] flex items-center justify-between gap-4">
                         <p className="text-sm text-gray-500">
-                          {t("cta_cantFind")}
+                          {t("navbarCantFindSpeciality")}
                         </p>
                         <Link
                           to="/specialities"
                           onClick={() => setShowSpecialities(false)}
                           className="text-sm font-semibold text-white bg-[#8b1e72] hover:bg-[#5e1550] px-4 py-2 rounded-lg duration-300 whitespace-nowrap"
                         >
-                          {t("cta_viewAll")}
+                          {t("navbarViewAllSpecialities")}
                         </Link>
                       </div>
 
@@ -686,7 +687,7 @@ changeLanguage("en");
               className="hidden md:flex lg:hidden items-center gap-2 bg-[#8b1e72] text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#5e1550] duration-300"
             >
               <FaPhoneAlt className="text-xs" />
-              {t("mobile_call")}
+              {t("navbarCall")}
             </a>
 
             {/* Hamburger — mobile & tablet.
@@ -750,13 +751,13 @@ changeLanguage("en");
             <img src={logo} alt="Gawade Hospital" className="h-10 w-auto object-contain" />
 
           
-           <span
-  className="text-2xl sm:text-3xl lg:text-4xl font-semibold"
-  style={{ fontFamily: "Signika, sans-serif", color: "#8b1e72" }}
->
-  Gawade Hospital
-</span>
-
+             
+            <span
+              className="text-lg"
+              style={{ fontFamily: "Prata, serif", color: "#8b1e72" }}
+            >
+              Gawade Hospital
+            </span>
           </div>
 
           <button
@@ -779,7 +780,7 @@ changeLanguage("en");
                 onClick={closeMobileMenu}
                 className="block px-5 py-4 hover:bg-[#f3e6ef]"
               >
-                {t("mobile_bookAppointment")}
+                {t("navbarBookAppointmentMobile")}
               </Link>
             </li>
 
@@ -789,7 +790,7 @@ changeLanguage("en");
                 onClick={() => setMobileSpecialitiesOpen((v) => !v)}
                 className="w-full flex items-center justify-between px-5 py-4 hover:bg-[#f3e6ef]"
               >
-                {t("specialities")}
+                {t("navbarSpecialities")}
                 <FaChevronDown
                   className={`text-xs duration-300 ${
                     mobileSpecialitiesOpen ? "rotate-180" : ""
@@ -841,7 +842,7 @@ changeLanguage("en");
                     onClick={closeMobileMenu}
                     className="text-center text-sm font-semibold text-white bg-[#8b1e72] py-2.5 rounded-lg"
                   >
-                    {t("cta_viewAll")}
+                    {t("navbarViewAllSpecialities")}
                   </Link>
 
                 </div>
@@ -889,7 +890,7 @@ changeLanguage("en");
               <span className="w-9 h-9 rounded-full bg-[#f6c9e0] text-[#8b1e72] flex items-center justify-center">
                 <FaMapMarkerAlt className="text-sm" />
               </span>
-              {t("topbar_address")}
+              {t("navbarAddress")}
             </div>
 
             {/* Social icons */}
@@ -927,14 +928,14 @@ changeLanguage("en");
             className="flex-1 flex items-center justify-center gap-2 bg-[#dc2626] text-white py-3 rounded-xl font-semibold text-sm"
           >
             <FaAmbulance />
-            {t("mobile_emergency")}
+            {t("navbarEmergency")}
           </a>
           <Link
             to="/appointment"
             onClick={closeMobileMenu}
             className="flex-1 flex items-center justify-center gap-2 bg-[#8b1e72] text-white py-3 rounded-xl font-semibold text-sm"
           >
-            {t("bookNow")}
+            {t("navbarBookNow")}
           </Link>
         </div>
 
@@ -972,7 +973,7 @@ changeLanguage("en");
             <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
               <FaAmbulance className="text-white text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-white">{t("mobile_emergency")}</span>
+            <span className="text-[10.5px] font-semibold text-white">{t("navbarEmergency")}</span>
           </a>
 
            <a 
@@ -990,7 +991,7 @@ changeLanguage("en");
             <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm">
               <FaPhoneAlt className="text-[#8b1e72] text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-[#8b1e72]">{t("mobile_call")}</span>
+            <span className="text-[10.5px] font-semibold text-[#8b1e72]">{t("navbarCall")}</span>
           </a>
 
           <Link
@@ -1009,7 +1010,7 @@ changeLanguage("en");
             <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm">
               <FaUserDoctor className="text-[#8b1e72] text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-[#8b1e72] whitespace-nowrap">{t("mobile_findDoctor")}</span>
+            <span className="text-[10.5px] font-semibold text-[#8b1e72] whitespace-nowrap">{t("navbarFindDoctor")}</span>
           </Link>
 
           <Link
@@ -1028,7 +1029,7 @@ changeLanguage("en");
             <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
               <FaProcedures className="text-white text-base" />
             </span>
-            <span className="text-[10.5px] font-semibold text-white">{t("mobile_book")}</span>
+            <span className="text-[10.5px] font-semibold text-white">{t("navbarBook")}</span>
           </Link>
 
         </div>
@@ -1036,5 +1037,5 @@ changeLanguage("en");
     </>
   );
 };
-
+ 
 export default Navbar;
