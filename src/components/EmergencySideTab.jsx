@@ -4,6 +4,7 @@ import {
   Calendar,
   MessageCircle,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function EmergencySideTab() {
   return (
@@ -56,13 +57,13 @@ export default function EmergencySideTab() {
                 <span>WhatsApp</span>
               </a>
 
-              <a
-                href="/appointment"
-                className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"
-              >
-                <Calendar size={18} className="text-[#8b1e72]" />
-                <span>Book Appointment</span>
-              </a>
+             <Link
+  to="/appointment"
+  className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"
+>
+  <Calendar size={18} className="text-[#8b1e72]" />
+  <span>Book Appointment</span>
+</Link>
             </div>
           </div>
         </div>
