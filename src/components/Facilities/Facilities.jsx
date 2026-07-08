@@ -2,13 +2,16 @@ import { useEffect, useRef } from "react";
 import {
   FaHospital, FaUserMd, FaHeartbeat, FaProcedures,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import whyImg from "../../assets/why.png";
 
+// Numbers/suffixes stay as plain data (universal digits), only the
+// title/description/display text is looked up via translation keys.
 const highlights = [
-  { number: 15, suffix: "+", title: "Years of Excellence", description: "Trusted healthcare destination in Baramati.", icon: <FaHospital /> },
-  { number: 10, suffix: "+", title: "Medical Specialities", description: "Orthopedics, Neurosurgery, Spine & Critical Care.", icon: <FaUserMd /> },
-  { number: null, display: "24×7", title: "Emergency Support", description: "Dedicated trauma and accident care services.", icon: <FaHeartbeat /> },
-  { number: 1000, suffix: "+", title: "Successful Treatments", description: "Advanced surgical care with excellent outcomes.", icon: <FaProcedures /> },
+  { number: 15, suffix: "+", titleKey: "whyHighlight1Title", descKey: "whyHighlight1Desc", icon: <FaHospital /> },
+  { number: 10, suffix: "+", titleKey: "whyHighlight2Title", descKey: "whyHighlight2Desc", icon: <FaUserMd /> },
+  { number: null, displayKey: "whyHighlight3Display", titleKey: "whyHighlight3Title", descKey: "whyHighlight3Desc", icon: <FaHeartbeat /> },
+  { number: 1000, suffix: "+", titleKey: "whyHighlight4Title", descKey: "whyHighlight4Desc", icon: <FaProcedures /> },
 ];
 
 function CountUp({ target, suffix = "", display }) {
@@ -46,6 +49,8 @@ function CountUp({ target, suffix = "", display }) {
 }
 
 export default function WhyChooseGawade() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#8b1e72] via-[#9c257f] to-[#6a1554] py-12 md:py-10">
 
@@ -66,11 +71,10 @@ export default function WhyChooseGawade() {
           <div className="text-center lg:text-left order-2 lg:order-1">
            
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-              Advanced Orthopedic,<br />Trauma & Multispeciality {" "}
-              <span className="block text-[#f7d6ea]">Care.</span>
+              {t("whyHeadingLine1")}<br />{t("whyHeadingLine2")} {" "}
+              <span className="block text-[#f7d6ea]">{t("whyHeadingLine3")}</span>
             </h2>
-<p className="mt-5 text-gray-100 text-[17px] sm:text-[18px] lg:text-[20px] leading-8 lg:leading-9 max-w-2xl mx-auto lg:mx-0">              Trusted healthcare destination in Baramati providing advanced orthopedic care,
-              trauma management, joint replacement, neurosurgery and emergency services.
+<p className="mt-5 text-gray-100 text-[17px] sm:text-[18px] lg:text-[20px] leading-8 lg:leading-9 max-w-2xl mx-auto lg:mx-0">              {t("whyParagraph")}
             </p>
           </div>
 
@@ -94,10 +98,14 @@ export default function WhyChooseGawade() {
               <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-[#8b1e72] text-white flex items-center justify-center text-2xl">
                 {item.icon}
               </div>
-              <CountUp target={item.number} suffix={item.suffix} display={item.display} />
-              <h4 className="mt-2 text-sm md:text-base font-semibold "  style={{ color: "#8b1e72" }}>{item.title}</h4>
+              <CountUp
+                target={item.number}
+                suffix={item.suffix}
+                display={item.displayKey ? t(item.displayKey) : undefined}
+              />
+              <h4 className="mt-2 text-sm md:text-base font-semibold "  style={{ color: "#8b1e72" }}>{t(item.titleKey)}</h4>
 <p className="mt-2 text-[15px] sm:text-[16px] lg:text-[17px] text-gray-500 leading-7">
-  {item.description}
+  {t(item.descKey)}
 </p>
             </div>
           ))}
@@ -106,9 +114,7 @@ export default function WhyChooseGawade() {
         {/* Mission Box */}
         <div className="mt-8">
           <div className="bg-white rounded-3xl p-5 md:p-7 shadow-xl border-l-4 border-[#8b1e72]">
-<p className="text-center mt-3 text-gray-700 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-5xl mx-auto">              Gawade Hospital is dedicated to delivering compassionate, patient-focused healthcare
-              through advanced medical technology, experienced specialists, modern infrastructure
-              and excellence in treatment outcomes.
+<p className="text-center mt-3 text-gray-700 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-5xl mx-auto">              {t("whyMissionText")}
             </p>
           </div>
         </div>

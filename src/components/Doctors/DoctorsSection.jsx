@@ -1,61 +1,48 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
+// Name/specialty/description are unique per doctor, but location and
+// schedule are identical for all six, so those two use one shared key
+// each instead of repeating the same string six times in every locale.
 const doctors = [
   {
-    name: "Dr. Arjun Mehta",
-    specialty: "Orthopedic & Joint Replacement Surgeon",
-    description:
-      "Expert in fracture management, trauma surgery, knee replacement, hip replacement, and orthopedic reconstruction procedures.",
-    location: "Baramati ",
-    schedule: "Mon – Sat · 10 am – 6 pm",
+    nameKey: "doctor1Name",
+    specialtyKey: "doctor1Specialty",
+    descKey: "doctor1Desc",
   },
   {
-    name: "Dr. Neha Sharma",
-    specialty: "Neurosurgeon",
-    description:
-      "Specialized in brain surgery, neurological disorders, and advanced neurosurgical procedures.",
-    location: "Baramati",
-    schedule: "Mon – Sat · 10 am – 6 pm",
+    nameKey: "doctor2Name",
+    specialtyKey: "doctor2Specialty",
+    descKey: "doctor2Desc",
   },
   {
-    name: "Dr. Rajesh Kulkarni",
-    specialty: "Spine Surgeon",
-    description:
-      "Experienced in spine surgery, spinal trauma management, and minimally invasive spine procedures.",
-    location: "Baramati",
-    schedule: "Mon – Sat · 10 am – 6 pm",
+    nameKey: "doctor3Name",
+    specialtyKey: "doctor3Specialty",
+    descKey: "doctor3Desc",
   },
   {
-    name: "Dr. Priya Desai",
-    specialty: "Plastic & Reconstructive Surgeon",
-    description:
-      "Providing reconstructive and plastic surgery solutions with advanced surgical techniques.",
-    location: "Baramati",
-    schedule: "Mon – Sat · 10 am – 6 pm",
+    nameKey: "doctor4Name",
+    specialtyKey: "doctor4Specialty",
+    descKey: "doctor4Desc",
   },
   {
-    name: "Dr. Suresh Patil",
-    specialty: "Critical Care Specialist",
-    description:
-      "Dedicated to managing critically ill patients with advanced intensive care support.",
-    location: "Baramati",
-    schedule: "Mon – Sat · 10 am – 6 pm",
+    nameKey: "doctor5Name",
+    specialtyKey: "doctor5Specialty",
+    descKey: "doctor5Desc",
   },
   {
-    name: "Dr. Kavita Joshi",
-    specialty: "Cardiologist",
-    description:
-      "Expert in cardiac care, advanced diagnostics, and interventional cardiology procedures for all age groups.",
-    location: "Baramati",
-    schedule: "Mon – Sat · 10 am – 6 pm",
+    nameKey: "doctor6Name",
+    specialtyKey: "doctor6Specialty",
+    descKey: "doctor6Desc",
   },
 ];
 
-// Get initials from name
+// Get initials from name (name is already translated text passed in)
 function getInitials(name) {
   return name
-    .replace("Dr. ", "")
+    .replace(/^Dr\.?\s*/, "")
+    .replace(/^डॉ\.?\s*/, "")
     .split(" ")
     .map((n) => n[0])
     .join("")
@@ -102,8 +89,9 @@ const CalendarIcon = () => (
 );
 
 // Doctor Card Component
-function DoctorCard({ doctor }) {
-  const initials = getInitials(doctor.name);
+function DoctorCard({ doctor, t }) {
+  const name = t(doctor.nameKey);
+  const initials = getInitials(name);
 
   return (
     <div
@@ -124,30 +112,30 @@ function DoctorCard({ doctor }) {
       className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold leading-tight"
       style={{ color: "#8b1e72" }}
     >
-      {doctor.name}
+      {name}
     </h3>
 
     <p className="mt-2 text-[15px] sm:text-[16px] lg:text-[17px] text-gray-500 leading-6">
-      {doctor.specialty}
+      {t(doctor.specialtyKey)}
     </p>
   </div>
 </div>
 
       {/* Description */}
      <p className="text-[15px] sm:text-[16px] lg:text-[17px] text-gray-600 leading-7 line-clamp-3">
-  {doctor.description}
+  {t(doctor.descKey)}
 </p>
 
 {/* Location & Schedule */}
 <div className="flex flex-col gap-2 text-[15px] sm:text-[16px] lg:text-[17px] text-gray-500">
   <div className="flex items-center gap-2">
     <LocationIcon />
-    <span>{doctor.location}</span>
+    <span>{t("doctorsLocationBaramati")}</span>
   </div>
 
   <div className="flex items-center gap-2">
     <CalendarIcon />
-    <span>{doctor.schedule}</span>
+    <span>{t("doctorsScheduleMonSat")}</span>
   </div>
 </div>
 
@@ -169,7 +157,7 @@ function DoctorCard({ doctor }) {
     "
     style={{ color: "#8b1e72", borderColor: "#8b1e72" }}
   >
-    Know More
+    {t("doctorsKnowMore")}
   </Link>
 
   <Link
@@ -190,7 +178,7 @@ function DoctorCard({ doctor }) {
     "
     style={{ backgroundColor: "#8b1e72" }}
   >
-    Book Appointment
+    {t("doctorsBookAppointment")}
   </Link>
 </div>
     </div>
@@ -199,6 +187,7 @@ function DoctorCard({ doctor }) {
 
 // Main Section
 export default function DoctorsSection() {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const cardsPerPage = 6;
   const totalPages = Math.ceil(doctors.length / cardsPerPage);
@@ -217,23 +206,22 @@ export default function DoctorsSection() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-10 md:w-12 h-[2px] bg-[#c9a227]" />
             <span className="text-[#8b1e72]  text-[13px] sm:text-[17px] font-semibold uppercase tracking-[2px] text-xs sm:text-sm">
-              Specialist Doctors
+              {t("doctorsSectionLabel")}
             </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-bold" style={{ color: "#8b1e72" }}>
-            Meet Our Medical Experts
+            {t("doctorsSectionHeading")}
           </h2>
 
-<p className="mt-3 text-gray-500 text-[16px] sm:text-[17px] lg:text-[18px] leading-7 lg:leading-8 max-w-3xl mx-auto">            Our team of highly qualified specialists is committed to providing
-            advanced diagnosis, effective treatment, and comprehensive patient care.
+<p className="mt-3 text-gray-500 text-[16px] sm:text-[17px] lg:text-[18px] leading-7 lg:leading-8 max-w-3xl mx-auto">            {t("doctorsSectionParagraph")}
           </p>
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visibleDoctors.map((doctor, index) => (
-            <DoctorCard key={index} doctor={doctor} />
+            <DoctorCard key={index} doctor={doctor} t={t} />
           ))}
         </div>
 

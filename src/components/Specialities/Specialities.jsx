@@ -5,47 +5,23 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GiKneeCap, GiBrain } from "react-icons/gi";
+import { useTranslation } from "react-i18next";
 
+// Icons stay hardcoded (not translatable); only the text is looked up
+// via translation keys, unique to this component ("spec" prefix) so
+// they never collide with the mega-menu keys in Navbar ("navbarSpec...").
 const specialities = [
-  {
-    icon: <FaBone />,
-    title: "Orthopedic Care",
-    description:
-      "Comprehensive treatment for fractures, trauma injuries and orthopedic conditions.",
-  },
-  {
-    icon: <GiKneeCap />,
-    title: "Knee Replacement",
-    description:
-      "Advanced knee replacement procedures for pain relief and better mobility.",
-  },
-  {
-    icon: <FaWalking />,
-    title: "Hip Replacement",
-    description:
-      "Modern hip replacement solutions for long-term joint health.",
-  },
-  {
-    icon: <GiBrain />,
-    title: "Neurosurgery",
-    description:
-      "Specialized treatment for brain, spine and neurological disorders.",
-  },
-  {
-    icon: <FaBone />,
-    title: "Spine Surgery",
-    description:
-      "Expert care for spinal injuries, disc problems and back pain.",
-  },
-  {
-    icon: <FaAmbulance />,
-    title: "Emergency Care",
-    description:
-      "24×7 emergency and critical care support with advanced facilities.",
-  },
+  { icon: <FaBone />, titleKey: "specCard1Title", descKey: "specCard1Desc" },
+  { icon: <GiKneeCap />, titleKey: "specCard2Title", descKey: "specCard2Desc" },
+  { icon: <FaWalking />, titleKey: "specCard3Title", descKey: "specCard3Desc" },
+  { icon: <GiBrain />, titleKey: "specCard4Title", descKey: "specCard4Desc" },
+  { icon: <FaBone />, titleKey: "specCard5Title", descKey: "specCard5Desc" },
+  { icon: <FaAmbulance />, titleKey: "specCard6Title", descKey: "specCard6Desc" },
 ];
 
 export default function Specialities() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-14 md:py-15 bg-[#faf7fb]">
       <div className="max-w-7xl mx-auto px-4">
@@ -57,18 +33,16 @@ export default function Specialities() {
             <div className="w-10 md:w-12 h-[2px] bg-[#c9a227]" />
 
             <span className="text-[#8b1e72] text-[13px] sm:text-[17px] font-semibold uppercase tracking-[2px] text-xs sm:text-sm">
-              Our Specialities
+              {t("specSectionLabel")}
             </span>
           </div>
 
           <h2 className="text-4xl sm:text-3xl lg:text-4xl font-bold text-[#8b1e72]">
-            Advanced Healthcare Services
+            {t("specSectionHeading")}
           </h2>
 
 <p className="mt-4 text-gray-600 text-[17px] sm:text-[17px] lg:text-[18px] leading-8">
-              Gawade Hospital offers advanced orthopedic, neuro, spine,
-            trauma and emergency care with modern technology and
-            experienced specialists.
+              {t("specSectionParagraph")}
           </p>
         </div>
 
@@ -98,12 +72,12 @@ export default function Specialities() {
 
               {/* Title */}
               <h3 className="text-xl md:text-2xl font-bold text-[#8b1e72] mb-3">
-                {item.title}
+                {t(item.titleKey)}
               </h3>
 
               {/* Description */}
               <p className="mt-4 text-gray-600 text-[16px] sm:text-[17px] lg:text-[18px] leading-8">
-                {item.description}
+                {t(item.descKey)}
               </p>
 
               {/* Buttons */}
@@ -127,7 +101,7 @@ export default function Specialities() {
   duration-300
                   "
                 >
-                  Know More
+                  {t("specKnowMore")}
                 </Link>
 
                 <Link
@@ -149,7 +123,7 @@ export default function Specialities() {
                     duration-300
                   "
                 >
-                  Book Now
+                  {t("specBookNow")}
                 </Link>
 
               </div>

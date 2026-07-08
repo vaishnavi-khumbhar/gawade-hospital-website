@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Phone,
   Ambulance,
@@ -20,6 +21,7 @@ const slides = [
 
 export default function Hero() {
   const [active, setActive] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -72,7 +74,7 @@ export default function Hero() {
             d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"
           />
         </svg>
-        Book Appointment
+        {t("heroBookAppointment")}
       </a>
 
       <a
@@ -101,7 +103,7 @@ export default function Hero() {
         duration-300
       "
       >
-        Call Now
+        {t("heroCallNow")}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5 shrink-0 text-white group-hover:text-[#8b1e72]"
@@ -126,12 +128,12 @@ export default function Hero() {
       style={{ fontFamily: "Signika, sans-serif" }}
     >
       <span className="text-white">
-        Advanced Orthopedic,
+        {t("heroHeadingLine1")}
         <br />
-        Trauma &amp; Multispeciality
+        {t("heroHeadingLine2")}
       </span>
       <br />
-      <span className="text-[#f0c419]">Care in Baramati</span>
+      <span className="text-[#f0c419]">{t("heroHeadingLine3")}</span>
     </h1>
   );
 
@@ -140,8 +142,7 @@ export default function Hero() {
       className="mt-4 sm:mt-6 text-sm sm:text-lg text-white/95 sm:text-white max-w-xl leading-relaxed"
       style={{ fontFamily: "Signika, sans-serif" }}
     >
-      Expert care with compassion, advanced technology, and a
-      patient-first approach for a healthier tomorrow.
+      {t("heroParagraph")}
     </p>
   );
 
@@ -163,7 +164,7 @@ export default function Hero() {
         flex items-center justify-center
         animate-pulse
       "
-        aria-label="Emergency Call"
+        aria-label={t("heroEmergencyCallAria")}
       >
         <Ambulance size={18} />
       </a>
@@ -211,7 +212,7 @@ export default function Hero() {
             <button
               key={index}
               onClick={() => setActive(index)}
-              aria-label={`Show slide ${index + 1}`}
+              aria-label={t("heroShowSlideAria", { number: index + 1 })}
               className={`rounded-full duration-300 ${
                 active === index ? "w-8 h-3 bg-white" : "w-3 h-3 bg-white/50"
               }`}
@@ -246,7 +247,7 @@ export default function Hero() {
               <button
                 key={index}
                 onClick={() => setActive(index)}
-                aria-label={`Show slide ${index + 1}`}
+                aria-label={t("heroShowSlideAria", { number: index + 1 })}
                 className={`rounded-full duration-300 ${
                   active === index ? "w-6 h-2.5 bg-white" : "w-2.5 h-2.5 bg-white/60"
                 }`}

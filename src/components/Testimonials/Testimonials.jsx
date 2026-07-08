@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-const reviews = [
-  { stars: 5, quote: "Appreciated. The services, staff, and treatment are all excellent. Thank you for taking such wonderful care — I felt completely safe throughout my recovery journey.", patient: "Gandhi Lal Idandas", tag: "Knee replacement" },
-  { stars: 5, quote: "Excellent services and all the staff are very good. It was a wonderful experience. Dr. Gawade explained everything clearly and the surgery went very smoothly.", patient: "Chaturvedi Sheela", tag: "Orthopedic surgery" },
-  { stars: 5, quote: "Very pleasant and clean, friendly atmosphere. Everybody was so caring — all the sisters were very efficient. Special thanks to the entire team for their dedication.", patient: "Raj Ghatak", tag: "Trauma care" },
-  { stars: 4, quote: "Everything was nice and excellent. Staff members were very polite during my stay. The ICU facility gave our family real confidence. Highly recommended.", patient: "Vaidhya Mohan Damodar", tag: "Critical care" },
-  { stars: 5, quote: "After my accident I was in serious condition. The emergency team responded instantly. Spine surgery was successful and today I walk without any pain.", patient: "Prakash Shinde", tag: "Spine surgery" },
-  { stars: 5, quote: "My mother had a hip replacement here. Doctors are highly skilled and the physiotherapy team is excellent. We are very satisfied with the complete outcome.", patient: "Sneha Kulkarni", tag: "Hip replacement" },
+// Quote/patient/tag are unique per review, so each gets its own
+// translation key ("testiReviewN..."), namespaced separately from
+// every other component's keys.
+const reviewKeys = [
+  { quoteKey: "testiReview1Quote", patientKey: "testiReview1Patient", tagKey: "testiReview1Tag", stars: 5 },
+  { quoteKey: "testiReview2Quote", patientKey: "testiReview2Patient", tagKey: "testiReview2Tag", stars: 5 },
+  { quoteKey: "testiReview3Quote", patientKey: "testiReview3Patient", tagKey: "testiReview3Tag", stars: 5 },
+  { quoteKey: "testiReview4Quote", patientKey: "testiReview4Patient", tagKey: "testiReview4Tag", stars: 4 },
+  { quoteKey: "testiReview5Quote", patientKey: "testiReview5Patient", tagKey: "testiReview5Tag", stars: 5 },
+  { quoteKey: "testiReview6Quote", patientKey: "testiReview6Patient", tagKey: "testiReview6Tag", stars: 5 },
 ];
 
 function Stars({ count }) {
@@ -22,8 +26,16 @@ function Stars({ count }) {
 }
 
 export default function TestimonialsSection() {
+  const { t } = useTranslation();
   const [cur, setCur] = useState(0);
   const [perPage, setPerPage] = useState(1);
+
+  const reviews = reviewKeys.map((r) => ({
+    stars: r.stars,
+    quote: t(r.quoteKey),
+    patient: t(r.patientKey),
+    tag: t(r.tagKey),
+  }));
 
   useEffect(() => {
     const fn = () => {
@@ -64,7 +76,7 @@ export default function TestimonialsSection() {
         <div className="flex items-center gap-2 mb-3">
           <div className="w-8 h-0.5 bg-[#8b1e72]" />
           <span className="text-[#8b1e72] text-[13px] sm:text-[17px] font-semibold tracking-widest uppercase">
-            Patient Stories
+            {t("testiLabel")}
           </span>
         </div>
 
@@ -72,10 +84,10 @@ export default function TestimonialsSection() {
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
           <div>
            <h2 className="text-[#8b1e72] text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-  Stories of Recovery & Trust
+  {t("testiHeading")}
 </h2>
            <p className="mt-3 text-[#7c5a88] text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-2xl">
-  Real experiences from patients and families who chose Gawade Hospital for their care.
+  {t("testiParagraph")}
 </p>
           </div>
 
@@ -87,14 +99,14 @@ export default function TestimonialsSection() {
           <button
             onClick={() => setCur((c) => Math.max(0, c - 1))}
             disabled={cur === 0}
-            aria-label="Previous"
+            aria-label={t("testiPrevAria")}
             className="w-9 h-9 rounded-full border border-[#d8b4e8] bg-white text-[#8b1e72] text-xl flex items-center justify-center hover:border-[#8b1e72] hover:bg-[#fdf4fb] disabled:opacity-30 transition-all active:scale-95"
           >‹</button>
 
           <button
             onClick={() => setCur((c) => Math.min(total - 1, c + 1))}
             disabled={cur >= total - 1}
-            aria-label="Next"
+            aria-label={t("testiNextAria")}
             className="w-9 h-9 rounded-full border border-[#d8b4e8] bg-white text-[#8b1e72] text-xl flex items-center justify-center hover:border-[#8b1e72] hover:bg-[#fdf4fb] disabled:opacity-30 transition-all active:scale-95"
           >›</button>
 
@@ -103,7 +115,7 @@ export default function TestimonialsSection() {
               <button
                 key={i}
                 onClick={() => setCur(i)}
-                aria-label={`Go to page ${i + 1}`}
+                aria-label={t("testiGoToPageAria", { number: i + 1 })}
                 className={`rounded-full transition-all duration-200 ${
                   i === cur
                     ? "w-3 h-3 bg-[#8b1e72]"

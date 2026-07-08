@@ -1,23 +1,26 @@
 import jointReplacementImg from "../../assets/joint-replacement.jpg";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function HeroJointReplacement() {
+  const { t } = useTranslation();
+
   const facilities = [
-    "Advanced operation theatres",
-    "ICU and critical care unit",
-    "CT scan and diagnostics",
-    "Physiotherapy and rehabilitation",
-    "Trauma and emergency care",
-    "Comfortable patient rooms",
-    "Cashless insurance facility",
-    "Modern diagnostic support",
+    t("jointFacility1"),
+    t("jointFacility2"),
+    t("jointFacility3"),
+    t("jointFacility4"),
+    t("jointFacility5"),
+    t("jointFacility6"),
+    t("jointFacility7"),
+    t("jointFacility8"),
   ];
 
   const highlights = [
-    "Knee replacement surgery",
-    "Hip replacement surgery",
-    "Advanced surgical techniques",
-    "Physiotherapy and rehabilitation support",
+    t("jointHighlight1"),
+    t("jointHighlight2"),
+    t("jointHighlight3"),
+    t("jointHighlight4"),
   ];
 
   return (
@@ -64,22 +67,20 @@ className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 bg-[#8b1e72] rotate-45"
             <div className="flex items-center gap-2.5 mb-3 sm:mb-4">
               <div className="w-7 sm:w-8 h-0.5 bg-[#f0c060]" />
               <span className="text-[#f0c060] text-[13px] sm:text-[17px] font-semibold tracking-[.13em] uppercase">
-                Centre for Joint Replacement
+                {t("jointLabel")}
               </span>
             </div>
 
             <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 sm:mb-4">
-              Advanced knee and hip{" "}
-              <span className="inline sm:hidden">replacement surgery </span>
+              {t("jointHeadingPart1")}{" "}
+              <span className="inline sm:hidden">{t("jointHeadingPart2")} </span>
               <span className="hidden sm:inline">
-                <br />replacement surgery<br />
+                <br />{t("jointHeadingPart2")}<br />
               </span>
-              <span className="text-[#f0c060]">in Baramati</span>
+              <span className="text-[#f0c060]">{t("jointHeadingHighlight")}</span>
             </h1>
 
-<p className="text-white/75 mt-4 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-xl mb-6 sm:mb-7">              Gawade Hospital's Joint Replacement Centre offers advanced surgical
-              techniques, experienced orthopedic specialists, and complete
-              rehabilitation support for a faster and stronger recovery.
+<p className="text-white/75 mt-4 text-[16px] sm:text-[17px] lg:text-[18px] leading-8 max-w-xl mb-6 sm:mb-7">              {t("jointParagraph")}
             </p>
 
             {/* checklist */}
@@ -112,7 +113,7 @@ className="
   transition-all
   duration-300
 "  >
-    Book Consultation
+    {t("jointBookConsultation")}
   </Link>
 
   <Link
@@ -133,7 +134,7 @@ className="
   transition-all
   duration-300
 "  >
-    Learn More
+    {t("jointLearnMore")}
   </Link>
 </div>
           </div>
@@ -148,11 +149,11 @@ className="
               />
               <div className="bg-[#500a3c]/90 px-3 sm:px-4 py-2 sm:py-2.5">
                <p className="text-white text-[15px] sm:text-[16px] lg:text-[17px] font-semibold leading-6">
-  Joint Replacement Centre
+  {t("jointImageCardTitle")}
 </p>
 
 <span className="mt-1 text-white/75 text-[13px] sm:text-[14px] lg:text-[15px] font-medium">
-  Gawade Hospital, Baramati
+  {t("jointImageCardSubtitle")}
 </span>
               </div>
             </div>

@@ -5,8 +5,11 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function EmergencySideTab() {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Desktop / Tablet */}
@@ -19,7 +22,7 @@ export default function EmergencySideTab() {
               transform: "rotate(180deg)",
             }}
           >
-            EMERGENCY
+            {t("emerTabLabel")}
           </span>
         </div>
 
@@ -27,7 +30,7 @@ export default function EmergencySideTab() {
         <div className="ml-2 w-72 opacity-0 invisible -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-x-0">
           <div className="bg-white border border-[#8b1e72]/20 rounded-xl shadow-2xl overflow-hidden">
             <div className="bg-[#8b1e72] text-white px-4 py-3 font-semibold">
-              Emergency Contact
+              {t("emerTabPanelTitle")}
             </div>
 
             <div className="p-2">
@@ -36,7 +39,7 @@ export default function EmergencySideTab() {
                 className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"
               >
                 <Ambulance size={18} className="text-[#8b1e72]" />
-                <span>Emergency +91 98765 43210</span>
+                <span>{t("emerTabEmergencyCall")}</span>
               </a>
 
               <a
@@ -44,7 +47,7 @@ export default function EmergencySideTab() {
                 className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"
               >
                 <Phone size={18} className="text-[#8b1e72]" />
-                <span>Call +91 7420932217</span>
+                <span>{t("emerTabCallText")}</span>
               </a>
 
               <a
@@ -54,7 +57,7 @@ export default function EmergencySideTab() {
                 className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"
               >
                 <MessageCircle size={18} className="text-[#8b1e72]" />
-                <span>WhatsApp</span>
+                <span>{t("emerTabWhatsapp")}</span>
               </a>
 
              <Link
@@ -62,7 +65,7 @@ export default function EmergencySideTab() {
   className="flex items-center gap-3 p-3 hover:bg-[#8b1e72]/10 rounded-lg transition"
 >
   <Calendar size={18} className="text-[#8b1e72]" />
-  <span>Book Appointment</span>
+  <span>{t("emerTabBookAppointment")}</span>
 </Link>
             </div>
           </div>
@@ -73,7 +76,7 @@ export default function EmergencySideTab() {
       <a
         href="tel:+919876543210"
         className="md:hidden fixed left-4 bottom-5 z-50 bg-red-600 text-white w-12 h-12 rounded-full shadow-xl flex items-center justify-center animate-pulse"
-        aria-label="Emergency Call"
+        aria-label={t("emerTabFloatingAria")}
       >
         <Ambulance size={20} />
       </a>
