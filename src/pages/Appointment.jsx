@@ -81,6 +81,19 @@ const DOCTORS = [
   { id: "dr-kavita-naik", name: "Dr. Kavita Naik", dept: "Oncology" },
 ];
 
+// Preferred time slots for the appointment
+const TIME_SLOTS = [
+  "09:00 AM - 10:00 AM",
+  "10:00 AM - 11:00 AM",
+  "11:00 AM - 12:00 PM",
+  "12:00 PM - 01:00 PM",
+  "02:00 PM - 03:00 PM",
+  "03:00 PM - 04:00 PM",
+  "04:00 PM - 05:00 PM",
+  "05:00 PM - 06:00 PM",
+  "06:00 PM - 07:00 PM",
+];
+
 function SearchableDropdown({ label, options, value, onChange, getLabel }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -231,6 +244,9 @@ useEffect(() => {
   return () => clearInterval(timer);
 }, []);
 
+  // Today's date in YYYY-MM-DD format, used to block past dates in the date picker
+  const todayStr = new Date().toISOString().split("T")[0];
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -239,6 +255,8 @@ useEffect(() => {
     service: null,
     doctor: null,
     age: "0",
+    appointmentDate: "",
+    timeSlot: null,
     recaptchaToken: null,
   });
   const [submitted, setSubmitted] = useState(false);
@@ -251,6 +269,14 @@ useEffect(() => {
   const handleSubmit = () => {
     if (!form.name || !form.contact) {
       alert("Please fill in the required fields (Name & Contact No.)");
+      return;
+    }
+    if (!form.appointmentDate) {
+      alert("Please select your preferred appointment date.");
+      return;
+    }
+    if (!form.timeSlot) {
+      alert("Please select your preferred time slot.");
       return;
     }
     if (!form.recaptchaToken) {
@@ -270,6 +296,8 @@ useEffect(() => {
       service: null,
       doctor: null,
       age: "0",
+      appointmentDate: "",
+      timeSlot: null,
       recaptchaToken: null,
     });
     setRecaptchaError(false);
@@ -299,7 +327,20 @@ useEffect(() => {
     }`}
   />
 ))}
-        
+
+        {/* Slider Dots — contained within this relative image wrapper */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActive(index)}
+              className={`rounded-full duration-300 ${
+                active === index ? "w-6 h-2.5 bg-white" : "w-2.5 h-2.5 bg-white/60"
+              }`}
+            />
+          ))}
+        </div>
+
         </div>
 
         {/* Content below image */}
@@ -430,21 +471,21 @@ className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leadi
             </div>
           </div>
 
-          
+          {/* Slider Dots — contained within desktop hero's relative wrapper */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActive(index)}
+                className={`rounded-full duration-300 ${
+                  active === index ? "w-8 h-3 bg-white" : "w-3 h-3 bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+
         </div>
       </div>
-
-<div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-  {slides.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => setActive(index)}
-      className={`rounded-full duration-300 ${
-        active === index ? "w-8 h-3 bg-white" : "w-3 h-3 bg-white/50"
-      }`}
-    />
-  ))}
-</div>
       {/* ============================================================
           BREADCRUMB
       ============================================================ */}
@@ -481,7 +522,7 @@ className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leadi
         </h2>
 
         <p
-className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] leading-7"
+className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] leading-7 no-select-callout"
           style={{ fontFamily: "Signika, sans-serif" }}
         >
           Fill in your details and our team will get back to you to confirm your slot.
@@ -579,7 +620,28 @@ className="text-gray-500 mb-6 sm:mb-8 text-[16px] sm:text-[17px] lg:text-[18px] 
                 </div>
               </div>
 
-              {/* Row 3 — captcha + buttons stacked on mobile */}
+              {/* Row 3 — Appointment Date + Preferred Time Slot — 1 col mobile / 2 col desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div className="relative">
+                  <input
+                    type="date"
+                    min={todayStr}
+                    value={form.appointmentDate}
+                    onChange={handleChange("appointmentDate")}
+                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-base"
+                    style={{ "--tw-ring-color": BRAND }}
+                  />
+                </div>
+
+                <SearchableDropdown
+                  label="Preferred Time Slot"
+                  options={TIME_SLOTS}
+                  value={form.timeSlot}
+                  onChange={(val) => setForm((p) => ({ ...p, timeSlot: val }))}
+                />
+              </div>
+
+              {/* Row 4 — captcha + buttons stacked on mobile */}
               <div className="flex flex-col gap-5">
                 <div>
                   {recaptchaError && (

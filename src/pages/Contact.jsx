@@ -52,6 +52,18 @@ const DOCTORS = [
 
 const LOCATIONS = ["Baramati", "Pune", "Indapur", "Daund", "Phaltan", "Other"];
 
+const TIME_SLOTS = [
+  "09:00 AM - 10:00 AM",
+  "10:00 AM - 11:00 AM",
+  "11:00 AM - 12:00 PM",
+  "12:00 PM - 01:00 PM",
+  "02:00 PM - 03:00 PM",
+  "03:00 PM - 04:00 PM",
+  "04:00 PM - 05:00 PM",
+  "05:00 PM - 06:00 PM",
+  "06:00 PM - 07:00 PM",
+];
+
 const MAP_EMBED_URL =
   "https://www.google.com/maps?q=Gawade+Hospital+Baramati&output=embed";
 
@@ -218,6 +230,7 @@ useEffect(() => {
   return () => clearInterval(timer);
 }, []);
   /* ── Appointment form state ── */
+  const todayStr = new Date().toISOString().split("T")[0];
   const [aptForm, setAptForm] = useState({
     name: "",
     email: "",
@@ -226,6 +239,8 @@ useEffect(() => {
     service: null,
     doctor: null,
     age: "0",
+    appointmentDate: "",
+    timeSlot: null,
     recaptchaToken: null,
   });
   const [aptSubmitted, setAptSubmitted] = useState(false);
@@ -252,6 +267,14 @@ useEffect(() => {
       alert("Please fill in the required fields (Name & Contact No.)");
       return;
     }
+    if (!aptForm.appointmentDate) {
+      alert("Please select your preferred appointment date.");
+      return;
+    }
+    if (!aptForm.timeSlot) {
+      alert("Please select your preferred time slot.");
+      return;
+    }
     if (!aptForm.recaptchaToken) {
       setAptRecaptchaError(true);
       return;
@@ -269,6 +292,8 @@ useEffect(() => {
       service: null,
       doctor: null,
       age: "0",
+      appointmentDate: "",
+      timeSlot: null,
       recaptchaToken: null,
     });
     setAptRecaptchaError(false);
@@ -602,7 +627,25 @@ useEffect(() => {
                 </div>
               </div>
 
-              {/* Row 3 — captcha + buttons */}
+              {/* Row 3 — Appointment Date + Preferred Time Slot */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <input
+                  type="date"
+                  min={todayStr}
+                  value={aptForm.appointmentDate}
+                  onChange={handleAptChange("appointmentDate")}
+                  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 text-gray-700 bg-white text-sm"
+                  style={{ "--tw-ring-color": BRAND }}
+                />
+                <SearchableDropdown
+                  label="Preferred Time Slot"
+                  options={TIME_SLOTS}
+                  value={aptForm.timeSlot}
+                  onChange={(val) => setAptForm((p) => ({ ...p, timeSlot: val }))}
+                />
+              </div>
+
+              {/* Row 4 — captcha + buttons */}
               <div className="flex flex-col gap-5">
                 <div>
                   {aptRecaptchaError && (

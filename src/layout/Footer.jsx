@@ -5,6 +5,7 @@ import {
   Mail,
   ArrowRight,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -19,10 +20,12 @@ const BRAND = "#8b1e72";
 const BRAND_TINT = "#fbf3f9";
 const BRAND_SOFT = "#f3e3ee";
 
+// Phone/email/mapLink are data (same in every language), so they stay
+// as plain constants; only nameKey/addressKey are looked up via i18n.
 const locations = [
   {
-    name: "Gawade Hospital",
-    address: "Gunwadi Road, Baramati, Maharashtra - 413102",
+    nameKey: "footerLocationName",
+    addressKey: "footerLocationAddress",
     phone: "+917420932217",
     email: "info@gawadehospital.com",
     mapLink: "https://www.google.com/maps?q=Gawade+Hospital+Baramati",
@@ -30,37 +33,40 @@ const locations = [
 ];
 
 const superSpecialities = [
-  { name: "Orthopedic & Trauma Care", link: "/specialities" },
-  { name: "Brain & Neurosurgery", link: "/specialities" },
-  { name: "Spine Surgery", link: "/specialities" },
-  { name: "Plastic & Reconstructive Surgery", link: "/specialities" },
-  { name: "Critical Care Services", link: "/specialities" },
+  { nameKey: "footerSuperSpec1", link: "/specialities" },
+  { nameKey: "footerSuperSpec2", link: "/specialities" },
+  { nameKey: "footerSuperSpec3", link: "/specialities" },
+  { nameKey: "footerSuperSpec4", link: "/specialities" },
+  { nameKey: "footerSuperSpec5", link: "/specialities" },
 ];
 
 const broadSpecialities = [
-  { name: "Knee Replacement Surgery", link: "/specialities" },
-  { name: "Hip Replacement Surgery", link: "/specialities" },
-  { name: "Joint Reconstruction", link: "/specialities" },
-  { name: "Physiotherapy & Rehabilitation", link: "/specialities" },
-  { name: "CT Scan & Diagnostics", link: "/specialities" },
+  { nameKey: "footerBroadSpec1", link: "/specialities" },
+  { nameKey: "footerBroadSpec2", link: "/specialities" },
+  { nameKey: "footerBroadSpec3", link: "/specialities" },
+  { nameKey: "footerBroadSpec4", link: "/specialities" },
+  { nameKey: "footerBroadSpec5", link: "/specialities" },
 ];
 
 const auxiliaryServices = [
-  { name: "Cashless Insurance Facility", link: "/specialities" },
-  { name: "Emergency & Trauma Care", link: "/specialities" },
-  { name: "ICU & Critical Care", link: "/specialities" },
-  { name: "Patient Testimonials", link: "/specialities" },
-  { name: "FAQs", link: "/specialities" },
+  { nameKey: "footerAuxService1", link: "/specialities" },
+  { nameKey: "footerAuxService2", link: "/specialities" },
+  { nameKey: "footerAuxService3", link: "/specialities" },
+  { nameKey: "footerAuxService4", link: "/specialities" },
+  { nameKey: "footerAuxService5", link: "/specialities" },
 ];
 
 const quickLinks = [
-  { name: "Book An Appointment", link: "/appointment" },
-  { name: "Specialities", link: "/specialities" },
-  { name: "Doctors", link: "/doctors" },
-  { name: "About Us", link: "/about" },
-  { name: "Contact Us", link: "/contact" },
+  { nameKey: "footerQuickLink1", link: "/appointment" },
+  { nameKey: "footerQuickLink2", link: "/specialities" },
+  { nameKey: "footerQuickLink3", link: "/doctors" },
+  { nameKey: "footerQuickLink4", link: "/about" },
+  { nameKey: "footerQuickLink5", link: "/contact" },
 ];
+
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer
       className="w-full"
@@ -74,8 +80,7 @@ export default function Footer() {
         style={{ backgroundColor: BRAND }}
         className="w-full px-6 py-4 text-center text-base font-semibold text-white sm:text-lg"
       >
-        From emergency support to specialised care, Gawade Hospital is here to
-        help you choose the right next step.
+        {t("footerTopStrip")}
       </div>
 
 <div className="mx-auto max-w-7xl px-6 py-10">
@@ -105,8 +110,7 @@ export default function Footer() {
             </div>
 
             <p className="text-base leading-8 text-gray-600">
-              Advanced Orthopedic, Trauma & Multispeciality Care in Baramati.
-              Where care goes beyond healthcare.
+              {t("footerTagline")}
             </p>
 
           </div>
@@ -128,7 +132,7 @@ export default function Footer() {
               <div>
 
                 <p className="text-sm font-medium text-gray-500">
-                  Emergency Number
+                  {t("footerEmergencyLabel")}
                 </p>
 
                 <p
@@ -156,7 +160,7 @@ export default function Footer() {
               <div>
 
                 <p className="text-sm font-medium text-gray-500">
-                  Call
+                  {t("footerCallLabel")}
                 </p>
 
                 <p
@@ -184,7 +188,7 @@ export default function Footer() {
               <div>
 
                 <p className="text-sm font-medium text-gray-500">
-                  Email
+                  {t("footerEmailLabel")}
                 </p>
 
                 <p
@@ -206,23 +210,27 @@ export default function Footer() {
 <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-6">
 
    <FooterColumn
-            title="Super Specialities"
+            titleKey="footerSuperSpecTitle"
             items={superSpecialities}
+            t={t}
           />
 
           <FooterColumn
-            title="Broad Specialities"
+            titleKey="footerBroadSpecTitle"
             items={broadSpecialities}
+            t={t}
           />
 
           <FooterColumn
-            title="Auxiliary Services"
+            titleKey="footerAuxTitle"
             items={auxiliaryServices}
+            t={t}
           />
 
           <FooterColumn
-            title="Quick Links"
+            titleKey="footerQuickLinksTitle"
             items={quickLinks}
+            t={t}
           />
 
           {/* बाकी Location Card पासून पुढचा code Part 2 मध्ये */}
@@ -234,12 +242,12 @@ export default function Footer() {
               className="mb-5 inline-block border-b-2 pb-1 text-lg font-bold uppercase tracking-wide"
               style={{ color: BRAND, borderColor: BRAND }}
             >
-              Our Location
+              {t("footerLocationTitle")}
             </h4>
 
             {locations.map((loc) => (
               <div
-  key={loc.name}
+  key={loc.nameKey}
   className="
     w-full
     sm:w-[340px]
@@ -259,12 +267,12 @@ export default function Footer() {
                   <MapPin size={18} style={{ color: BRAND }} />
 
                   <span className="text-lg font-semibold text-[#8b1e72]">
-  {loc.name}
+  {t(loc.nameKey)}
 </span>
                 </div>
 
                 <p className="mb-4 text-base leading-7 text-gray-600">
-                  {loc.address}
+                  {t(loc.addressKey)}
                 </p>
 
                 <p className="mb-2 flex items-center gap-2 text-base text-gray-700">
@@ -296,7 +304,7 @@ export default function Footer() {
     e.currentTarget.style.color = BRAND;
   }}
 >
-  <span>Get Directions</span>
+  <span>{t("footerGetDirections")}</span>
   <ArrowRight size={15} />
 </a>
 
@@ -311,7 +319,7 @@ export default function Footer() {
     e.currentTarget.style.backgroundColor = BRAND;
   }}
 >
-  Call Now
+  {t("footerCallNow")}
 </a>
                 </div>
               </div>
@@ -324,45 +332,42 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div
-        className="border-t"
-        style={{ borderColor: BRAND_SOFT }}
+     {/* ================= Bottom ================= */}
+<div
+  className="border-t mt-6 pb-24 sm:pb-6"
+  style={{ borderColor: BRAND_SOFT }}
+>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5">
+
+    {/* Copyright */}
+    <p className="text-center text-[11px] sm:text-sm text-gray-500 leading-6">
+      {t("footerCopyright")}
+    </p>
+
+    {/* Developed By */}
+    <p className="mt-2 text-center text-[15px] sm:text-sm text-gray-500 leading-6">
+      {t("footerDesignedBy")}{" "}
+      <a
+        href="https://www.advertisingandbrandingmarketing.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold hover:underline transition-colors"
+        style={{ color: BRAND }}
       >
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 sm:flex-row">
+        Advertising Branding & Marketing
+      </a>
+    </p>
 
-          <p className="text-sm text-gray-500">
-            © Gawade Hospital. All Rights Reserved.
-          </p>
+    {/* Social Icons */}
+    <div className="mt-4 flex justify-center gap-3">
+      <SocialIcon Icon={FaFacebookF} />
+      <SocialIcon Icon={FaInstagram} />
+      <SocialIcon Icon={FaLinkedinIn} />
+      <SocialIcon Icon={FaYoutube} />
+    </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-5">
-
-            <a
-              href="#"
-              className="text-sm hover:underline"
-              style={{ color: BRAND }}
-            >
-              Terms & Conditions
-            </a>
-
-            <a
-              href="#"
-              className="text-sm hover:underline"
-              style={{ color: BRAND }}
-            >
-              Privacy Policy
-            </a>
-
-          </div>
-
-          <div className="flex items-center gap-4">
-            <SocialIcon Icon={FaFacebookF} />
-            <SocialIcon Icon={FaInstagram} />
-            <SocialIcon Icon={FaLinkedinIn} />
-            <SocialIcon Icon={FaYoutube} />
-          </div>
-
-        </div>
-      </div>
+  </div>
+</div>
 
     </footer>
   );
@@ -372,7 +377,7 @@ export default function Footer() {
       Footer Column
 =========================== */
 
-function FooterColumn({ title, items }) {
+function FooterColumn({ titleKey, items, t }) {
   return (
     <div>
 
@@ -383,14 +388,14 @@ function FooterColumn({ title, items }) {
           borderColor: BRAND,
         }}
       >
-        {title}
+        {t(titleKey)}
       </h4>
 
      <ul className="space-y-3">
   {items.map((item) => (
-    <li key={typeof item === "string" ? item : item.name}>
+    <li key={item.nameKey}>
       <Link
-        to={typeof item === "string" ? "#" : item.link}
+        to={item.link}
         className="text-base text-gray-600 transition-all duration-300 hover:underline"
         onMouseEnter={(e) =>
           (e.currentTarget.style.color = BRAND)
@@ -399,7 +404,7 @@ function FooterColumn({ title, items }) {
           (e.currentTarget.style.color = "")
         }
       >
-        {typeof item === "string" ? item : item.name}
+        {t(item.nameKey)}
       </Link>
     </li>
   ))}

@@ -44,3 +44,27 @@ body {
     animation-duration: 25s;
   }
 }
+
+
+
+/* apponment code page  */
+/* ============================================================
+   Add this to your global CSS file (e.g. index.css or App.css)
+   Disables the native mobile "select text" magnifier / callout
+   icon that pops up on tap-and-hold over paragraph text.
+   ============================================================ */
+
+/* Removes the gray tap-flash highlight box on Android Chrome */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Apply this class to text blocks where you don't want the
+   copy/select/lookup bubble to appear on tap-and-hold */
+.no-select-callout {
+  -webkit-touch-callout: none;   /* disables iOS Safari's copy/lookup menu */
+  -webkit-user-select: none;     /* disables text selection on iOS/Android */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
