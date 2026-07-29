@@ -9,6 +9,8 @@ import {
   FaHospitalUser,
 } from "react-icons/fa";
 import AboutImg from "../assets/about.png";
+import AboutImg1 from "../assets/about1.png";
+
 import { Link } from "react-router-dom";
 
 
@@ -359,10 +361,10 @@ export default function About() {
   {/* Left Image */}
   <div className="relative order-1">
     <img
-      src="https://media.istockphoto.com/id/993985508/photo/building-with-large-h-sign-for-hospital.jpg?s=612x612&w=0&k=20&c=0K07VYHMEpmKFfhzcGOfmBt9PST05h8ZVddhtsECLMU="
-      alt="Gawade Hospital"
-      className="w-full h-[260px] sm:h-[350px] lg:h-[500px] object-cover rounded-2xl lg:rounded-3xl shadow-2xl"
-    />
+  src={AboutImg1}
+  alt="Gawade Hospital"
+  className="w-full h-[260px] sm:h-[350px] lg:h-[500px] object-cover rounded-2xl lg:rounded-3xl shadow-2xl"
+/>
 
     {/* Experience Card */}
     <div className="absolute bottom-4 right-4 lg:-bottom-6 lg:-right-6 bg-[#8b1e72] text-white rounded-xl lg:rounded-2xl px-5 py-4 lg:px-8 lg:py-6 shadow-xl">

@@ -507,7 +507,7 @@ changeLanguage("en");
                   <h2
                     className="text-xl sm:text-2xl md:text-3xl leading-none"
                     style={{
-                      fontFamily: "Oswald, sans-serif",
+                      fontFamily:  "Cormorant Garamond",
                       fontWeight: 600,
                       color: "#8b1e72",
                     }}
@@ -755,6 +755,7 @@ changeLanguage("en");
             <span
               className="text-lg"
               style={{ fontFamily: "Prata, serif", color: "#8b1e72" }}
+
             >
               Gawade Hospital
             </span>

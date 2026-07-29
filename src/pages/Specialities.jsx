@@ -40,6 +40,13 @@ import Banner7 from "../assets/banners/7.jpeg";
 import Banner8 from "../assets/banners/8.jpeg";
 import Banner9 from "../assets/banners/9.jpeg";
 
+import Banner10 from "../assets/banners/10.jpg";
+import Banner11 from "../assets/banners/11.jpg";
+import Banner12 from "../assets/banners/12.jpg";
+import Banner13 from "../assets/banners/13.jpg";
+import Banner14 from "../assets/banners/14.jpg";
+
+
 const treatmentBanners = [
   {
     image: Banner1,
@@ -76,6 +83,27 @@ const treatmentBanners = [
   {
     image: Banner9,
     title: "Shoulder Surgery",
+  },
+  
+  {
+    image: Banner11,
+    title: "Knee Arthroscopy",
+  },
+  {
+    image: Banner12,
+    title: "Hand & Wrist Surgery",
+  },
+  {
+    image: Banner13,
+    title: "Hospital Facilities",
+  },
+  {
+    image: Banner14,
+    title: "Affordable Surgery",
+  },
+  {
+    image: Banner10,
+    title: "Joint Replacement Package",
   },
 ];
 
