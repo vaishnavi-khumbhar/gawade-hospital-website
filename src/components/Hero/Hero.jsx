@@ -7,16 +7,14 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-import slider13 from "../../assets/images/slider13.jpg";
-import slider1 from "../../assets/images/slider1.png";
+import slider1 from "../../assets/images/slider11.png";
 
-import slider2 from "../../assets/images/slider2.jpg";
+import slider11 from "../../assets/images/slider11.png";
 
 const slides = [
   slider1,
-  slider13,
 
-  slider2,
+  slider11,
   
 ];
 
